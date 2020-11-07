@@ -1,0 +1,77 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title OfficerDash
+link(rel="stylesheet", href="/css/agridash.css")
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css")
+//  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>  
+input#check(type="checkbox")
+//-  header area start
+header
+  label(for="check")
+    i.fas.fa-bars#sidebar_btn
+  .left_area
+    h3
+      | U-
+      span FARM
+  .right_area
+    a.logout_btn(href="http://localhost:3000/masajja") Logout
+//-  header area end
+//-  mobile navigation bar start
+.mobile_nav
+  .nav_bar
+    img.mobile_profile_image(src="/Public/images/avatar.png", alt)
+    i.fa.fa-bars.nav_btn
+  .mobile_nav_items
+    a(href="#")
+      i.fas.fa-desktop
+      span Register Farmer One
+    a(href="#")
+      i.fas.fa-cogs
+      span View Wards
+    a(href="#")
+      i.fas.fa-table
+      span Urban Farmers
+    a(href="#")
+      i.fas.fa-th
+      span Head Farmers
+    a(href="#")
+      i.fas.fa-info-circle
+      span Market
+    a(href="#")
+      i.fas.fa-sliders-h
+      span Settings
+//-  mobile navigation bar end
+//- sidebar start
+.sidebar
+  .profile_info
+    img.profile_image(src="/images/avatar.png", alt)
+    h4 Eng.Faith Nanfunka
+  a(href="http://localhost:3000/farmerOne")
+    i.fas.fa-desktop
+    span Register Farmer One
+  a(href="#")
+    i.fas.fa-cogs
+    span View Wards
+  a(href="#")
+    i.fas.fa-table
+    span Urban Farmers
+  a(href="http://localhost:3000/farmerOnes")
+    i.fas.fa-th
+    span FarmerOnes
+  a(href="#")
+    i.fas.fa-info-circle
+    span Market
+  a(href="#")
+    i.fas.fa-sliders-h
+    span Settings
+//-  sidebar end
+.content
+ 
+script(type="text/javascript").
+  
+  $(document).ready(function(){
+        $('.nav_btn').click(function(){
+          $('.mobile_nav_items').toggleClass('active');
+        });
+      });
+  

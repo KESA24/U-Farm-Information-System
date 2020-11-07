@@ -1,0 +1,39 @@
+extends farmerOneslayout
+block content
+    header.card-header
+        h4.card-title Farmer Ones
+    table.table
+        thead.thead-dark
+            tr
+                th Names
+                th Gender
+                th Date Of Birth
+                th Date of Registration
+                th NIN
+                th Tel
+                th FO Number
+                th Ward
+                th Home Location
+                th Residence Type
+                th Period of Stay
+                th Activities
+        tbody
+            if users.length
+            each user in users
+                tr
+                    td #{user.name}
+                    td #{user.gender}
+                    td #{user.dateOfBirth}
+                    td #{user.dateOfRegistration}
+                    td #{user.nin}
+                    td #{user.phonenumber}
+                    td #{user.foNumber}
+                    td #{user.Ward}
+                    td #{user.homeLocation}
+                    td #{user.residenceType}
+                    td #{user.stayperiod}
+                    td #{user.activities}
+
+            else
+                p No registrations yet :(
+
