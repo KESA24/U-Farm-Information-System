@@ -1,0 +1,71 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+//-  Links to styling 
+script(src="https://kit.fontawesome.com/8af5379226.js", crossorigin="anonymous")
+link(rel="stylesheet", href="css/officials.css")
+link(rel="icon", href="images/favicon.jpg", sizes="16x16", type="image/png")
+link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&display=swap", rel="stylesheet")
+link(rel="stylesheet", href="css/bootstrap_css/bootstrap.css")
+title UFARM
+//-  Main Landing Page 
+.container-bg
+  header
+    //- img(src, alt)
+    nav.nav-container
+      ul
+        li
+          a.active(href) Home
+        li
+          a(href) About
+        li
+          a(href) Farm Wards
+        li
+          a(href) Market Place
+  .content-wrapper
+    h1 Masajja Urban Farming Initiative
+    p
+      | Urban Farming
+      br
+      | Produce Market
+      br
+      | Improved Livelihoods
+    button.btn.btn-warning#button Log In
+  .bg-login
+    .loginform
+      .close +
+      img(src="images/avatar.png", alt)
+      form(action)
+        input.cred(type="text", placeholder="Name", required)
+        input.cred(type="text", placeholder="Email", required)
+        a.button(href) Submit
+//- .farmwards
+//-   h2 Masajja is divided into four thriving farm wards
+//-   .row.row-cols-1.row-cols-md-4
+//-     .col.mb-3
+//-       .card.h-100
+//-         img.card-img-top(src="images/ward1.jpg", alt="...")
+//-         .card-body
+//-           h5.card-title Ward 1
+//-           p.card-text
+//-     .col.mb-3
+//-       .card.h-100
+//-         img.card-img-top(src="images/vegetables-752153_1920.jpg", alt="...")
+//-         .card-body
+//-           h5.card-title Ward 2
+//-           p.card-text
+//-     .col.mb-3
+//-       .card.h-100
+//-         img.card-img-top(src="images/fruit-basket-1114060_1920.jpg", alt="...")
+//-         .card-body
+//-           h5.card-title Ward 3
+//-           p.card-text
+//-     .col.mb-3
+//-       .card.h-100
+//-         img.card-img-top(src="images/milk-2474993_1920.jpg", alt="...")
+//-         .card-body
+//-           h5.card-title Ward 4
+//-           p.card-text
+script(src="js/officials.js")
+script(src="js/jquery-3.5.1.slim.min.js")
+script(src="js/popper.min.js")
+script(src="js/bootstrap_js/bootstrap.js")
