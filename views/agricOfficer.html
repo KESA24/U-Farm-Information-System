@@ -3,85 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <!-- Links to styling -->
     <script src="https://kit.fontawesome.com/8af5379226.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/public/css/officials.css">
     <link rel="icon" href="/public/images/favicon.jpg" sizes="16x16" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Public/css/bootstrap_css/bootstrap.css">
 
-    <title>UFARM</title>
+  <title>UFARM</title>
 </head>
 <body>
-
-    <div id="container-bg">
-        <header>
-            <img src="" alt="">
-            <nav class="nav-container">
-                <ul>
-                    <li>
-                    <a href="" class="active">Home</a> 
-                    </li>
-                    <li>
-                        <a href="">About</a> 
-                    </li>
-                    <li>
-                        <!-- Add dropdown of wards with links -->
-                        <a href="">Farm Wards</a>  
-                    </li>
-                    <li>
-                        <a href="">Market Place</a> 
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div class="content-wrapper">
-            <h1>Masajja Urban Farming Initiative</h1>
-            <p> Urban Farming<br> Produce Market<br>Improved Livelihoods</p>
-            <a href="">Log In</a>
-        </div>
+<!-- Main Landing Page -->
+  <div class="container-bg">
+    <header>
+      <img src="" alt="">
+      <nav class="nav-container">
+        <ul>
+          <li><a href="" class="active">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Farm Wards</a></li>
+          <li><a href="">Market Place</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content-wrapper">
+      <h1>Masajja Urban Farming Initiative</h1>
+      <p> Urban Farming<br> Produce Market<br>Improved Livelihoods</p>
+      <button class="btn btn-warning" id="button">Log In</button>
     </div>
-    <div class="farmwards">
-        <h2>Masajja is divided into four thriving farm wards</h2>
-        <div class="row row-cols-1 row-cols-md-4">
-            <div class="col mb-3">
-              <div class="card h-100">
-                <img src="/Public/images/ward1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Ward 1</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-3">
-              <div class="card h-100">
-                <img src="/Public/images/vegetables-752153_1920.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Ward 2</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-3">
-              <div class="card h-100">
-                <img src="/Public/images/fruit-basket-1114060_1920.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Ward 3</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
-            </div>
-            <div class="col mb-3">
-              <div class="card h-100">
-                <img src="/Public/images/milk-2474993_1920.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Ward 4</h5>
-                  <p class="card-text"></p>
-                </div>
-              </div>
+    <div class="bg-login">
+      <div class="loginform">
+        <div class="close">+</div>
+        <img src="/Public/images/avatar.png" alt="">
+        <form action="">
+          <input class="cred" type="text" placeholder="Name" required>
+          <input  class="cred" type="text" placeholder="Email" required>
+          <a href=""  class="button">Submit</a>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- The farmwards
+  <div class="farmwards">
+    <h2>Masajja is divided into four thriving farm wards</h2>
+    <div class="row row-cols-1 row-cols-md-4">
+        <div class="col mb-3">
+          <div class="card h-100">
+            <img src="/Public/images/ward1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ward 1</h5>
+              <p class="card-text"></p>
             </div>
           </div>
-    </div>
+        </div>
+        <div class="col mb-3">
+          <div class="card h-100">
+            <img src="/Public/images/vegetables-752153_1920.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ward 2</h5>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="card h-100">
+            <img src="/Public/images/fruit-basket-1114060_1920.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ward 3</h5>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-3">
+          <div class="card h-100">
+            <img src="/Public/images/milk-2474993_1920.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Ward 4</h5>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <script src="../Public/js/officials.js"></script>
     <script src="/public/js/jquery-3.5.1.slim.min.js"></script>
     <script src="/public/js/popper.min.js"></script>
     <script src="/public/js/bootstrap_js/bootstrap.js"></script>  
