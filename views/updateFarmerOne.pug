@@ -1,0 +1,56 @@
+extends farmerOneslayout
+block content
+    header.card-header
+        h4.card-title Farmer Ones
+            form(method="post" action="/update")
+    table.table
+        thead.thead-dark 
+            tr
+                th Names
+                th Gender
+                th Date Of Birth
+                th Date of Registration
+                th NIN
+                th Tel
+                th FO Number
+                th Ward
+                th Home Location
+                th Residence Type
+                th Period of Stay
+                th Activities
+                th Edit/Delete
+        tbody
+            if users.length
+            each user in users
+                tr
+                    td 
+                        input.form-control(value = user.name name ="email")
+                    td
+                        input.form-control(value = user.gender name ="gender") 
+                    td 
+                        input.form-control(value = user.dateOfBirth name ="dateOfBirth")
+                    td 
+                        input.form-control(value = user.dateOfRegistration name ="dateOfRegistration")
+                    td 
+                        input.form-control(value = user.nin name ="nin") 
+                    td 
+                        input.form-control(value = user.phonenumber name ="phonenumber")
+                    td 
+                        input.form-control(value = user.foNumber name ="foNumber")
+                    td 
+                        input.form-control(value = user.Ward name ="ward")
+                    td 
+                        input.form-control(value = user.homeLocation name ="homeLocation")
+                    td 
+                        input.form-control(value = user.residenceType name ="residenceType")
+                    td 
+                        input.form-control(value = user.stayPeriod name ="stayPeriod")
+                    td 
+                        input.form-control(value = user.activities name ="activities")
+                    td
+                        form(method="post" action='/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+            else
+                p No registrations yet :(
+

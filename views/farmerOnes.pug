@@ -2,6 +2,17 @@ extends farmerOneslayout
 block content
     header.card-header
         h4.card-title Farmer Ones
+        |&nbsp
+        div.form-row
+            div.col.form-group.col-md-10    
+                form.search(action='/farmerOnes')
+                    div.form-row
+                        div.col-md-8
+                            input.form-control(name='name' placeholder="Enter your search term(name) ...")
+                        div.col-md-4
+                            input.btn.btn-dark.btn-block(type="submit") 
+            div.col.form-group.col-md-2
+                a(href="/update") Update Credentials
     table.table
         thead.thead-dark
             tr
@@ -17,6 +28,7 @@ block content
                 th Residence Type
                 th Period of Stay
                 th Activities
+                th Edit/Delete
         tbody
             if users.length
             each user in users
@@ -33,6 +45,10 @@ block content
                     td #{user.residenceType}
                     td #{user.stayperiod}
                     td #{user.activities}
+                    td
+                        form(method="post" action='/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
 
             else
                 p No registrations yet :(
