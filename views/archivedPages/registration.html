@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Public/css/bootstrap_css/bootstrap.css">
+    <link rel="stylesheet" href="/Public/css/registraton.css">
+    <!-- GoogleFonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h3>Farmer One Registration</h3>
+    <form>
+    <!-- <fieldset></fieldset> -->
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" id="fname">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">Second Name</label>
+            <input type="password" class="form-control" id="inputPassword4">
+          </div>
+          <div class="form-group col-md-4" >
+            <label for="fname">Gender</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+              </div>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+<script src="/Public/js/jquery-3.5.1.slim.min.js"></script> 
+<script src="/Public/js/popper.min.js"></script>
+<script src="/Public/js/bootstrap_js/bootstrap.js"></script>
+<script src="/Public/js/registration.js"></script>
+</body>
+</html>
+
+
+

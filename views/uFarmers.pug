@@ -1,0 +1,61 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Urban Farmers
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="stylesheet", href="/css/registraton.css")
+.containerufs
+  h3 Registered Urban Farmers
+    |&nbsp
+    div.form-row
+        div.col.form-group.col-md-10    
+            form.search( action='/ufarmers')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit") 
+  table.table.table-bordered
+    thead
+      tr
+        th(scope="col") FirstName
+        th(scope="col") Last Name
+        th(scope="col") Date of Birth
+        th(scope="col") Date of Reg
+        th(scope="col") NIN
+        th(scope="col") Contact
+        th(scope="col") Ward
+        th(scope="col") Ufarm ID
+        th(scope="col") Activities
+        th(scope="col") Gender
+        th(scope="col") Delete
+        th(scope="col") Update
+        
+
+    tbody
+            if users.length
+            each user in users
+                tr
+                    td #{user.fname}
+                    td #{user.lname}
+                    td #{user.dob}
+                    td #{user.dor}
+                    td #{user.nin}
+                    td #{user.phone}
+                    td #{user.ward}
+                    td #{user.ufid}
+                    td #{user.acts}
+                    td #{user.gender}
+
+                    td
+                        form(method="post" action='/deleteufarmer')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+                    td
+                        a(href='/updateufarmer/'+user._id) Update
+
+            else
+                p No registrations yet :(      
+        
+script(src="/js/jquery-3.5.1.slim.min.js")
+script(src="/js/popper.min.js")
+script(src="/js/bootstrap_js/bootstrap.js")

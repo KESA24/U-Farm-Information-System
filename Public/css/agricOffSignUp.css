@@ -1,0 +1,66 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: lavender
+    
+}
+
+.container{
+    margin-top: 30px;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    height: 600px;
+    
+
+}
+
+h3{
+    
+    margin-left: 30%;
+    padding-top: 30px;
+}
+
+form{
+    padding: 20px;
+    
+}
+
+button{
+    border-radius: 3px;
+    background-color: burlywood;
+    
+}
+.form-group i {
+    position: absolute;
+    top:40px;
+    right: 30px;
+    visibility: hidden;
+}
+
+.form-group small{
+    visibility: hidden; 
+    position: absolute;
+    bottom: 10;
+    left: 5;
+}
+
+.form-group.success input{
+    border-color: green;
+}
+
+.form-group.error input{
+    border-color: red;
+}
+
+.form-group.success i.fa-check-circle{
+    visibility: visible;
+    color: green;
+}
+.form-group.error i.fa-exclamation-circle{
+    color: red;
+    visibility: visible;
+}
+.form-group.error small{
+    color: red;
+    visibility: visible;
+}

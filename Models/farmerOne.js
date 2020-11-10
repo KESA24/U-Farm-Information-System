@@ -1,24 +1,24 @@
-const { truncate } = require('fs');
+// const { truncate } = require('fs');
 const mongoose = require('mongoose');
 
 const farmerOneSchema = new mongoose.Schema({
-  name: {
+name: {
     type: String,
     trim: true,
   },
-  gender: {
+gender: {
     type: String,
     trim: true,
   },
-  dateOfBirth: {
+dateOfBirth: {
     type: Date,
     trim: true,
   },
-  dateOfRegistration: {
+dateOfRegistration: {
     type: Date,
     trim: true,
   },
-  nin: {
+nin: {
     type: String,
     trim: true,
   },

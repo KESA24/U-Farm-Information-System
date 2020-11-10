@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Public/css/bootstrap_css/bootstrap.css">
+  <link rel="stylesheet" href="/Public/css/registraton.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <title>Urban Farmer Registration</title>
+</head>
+<body>
+  <div class="container">
+    <h3>Urban Farmer Registration</h3>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="fname">First Name</label>
+        <input name="fname" type="text" class="form-control" id="fname">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lname">Last Name</label>
+        <input name="lname" type="text" class="form-control" id="sname">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="dob">Date Of Birth</label>
+        <input name="dob" type="date" class="form-control" id="dob">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="dor">Date of Registration</label>
+        <input name="dor" type="date" class="form-control" id="dor">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="nin">National Identification Number</label>
+        <input name="nin" type="text" class="form-control" id="nin">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="phone">Contact</label>
+        <input name="phone" type="tel" class="form-control" id="phone">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="Ward">Ward</label>
+        <select name="ward" id="ward" class="form-control">
+            <option value="Horticulture">Ward 1</option>
+            <option value="Poultry">Ward 2</option>
+            <option value="Dairy">Ward 3</option>
+            <option value="Dairy">Ward 4</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="ufid">Ufarmer Number</label>
+        <input name="ufid" type="text" class="form-control" id="ufid" placeholder="">
+      </div>
+   </div>
+    <div class="form-group">
+        <label for="acts"> Farming Activities</label>
+        <select name="acts" id="acts" class="form-control">
+            <option value="Horticulture">Horticulture</option>
+            <option value="Poultry">Poultry</option>
+            <option value="Dairy">Dairy</option>
+        </select>
+      </div>
+    <fieldset class="form-group col-md-6">
+      <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender1" value="option1" checked>
+            <label class="form-check-label" for="gender1">
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender2" value="option2">
+            <label class="form-check-label" for="gender2">
+              Male
+            </label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <button style="width: 100%;" type="submit" class="btn btn-primary">Register</button>
+  </form>
+  </div>
+  <script src="/Public/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="/Public/js/popper.min.js"></script>
+  <script src="/Public/js/bootstrap_js/bootstrap.js"></script>
+</body>
+</html>

@@ -39,22 +39,11 @@ router.get('/farmerOne', (req,res) => {
     }   
 })
 
-//Retrieve FarmerOnes from database
-
-// router.get('/farmerOnes', async(req, res)=>{
-//     try{
-//         let items = await farmerOneReg.find()
-//         res.render('farmerOnes', { users: items})
-//     }catch(err){
-//         res.status(400).send("Unable to find items in the database");
-//     }  
-// })
+// Retrieve/Search for farmerOnes in the database
 
 router.get('/farmerOnes', async (req, res) => {
     try {
-        let items = await farmerOneReg.find()
-
-// Search Data in the datatbase   
+        let items = await farmerOneReg.find()  
 
         if (req.query.name) {
             items = await farmerOneReg.find({ name: req.query.name })
@@ -65,15 +54,25 @@ router.get('/farmerOnes', async (req, res) => {
     }
 })
 
-//Update Credentials
-router.get('/update', async (req, res) => {
+//Update  FarmerOne Credentials
+router.get('/update/:id', async (req, res) => {
     try {
-        let items = await farmerOneReg.find() 
-        res.render('updateFarmerOne', { title: 'Farmer Ones', users: items })
+        const updatefarmerone = await farmerOneReg.findOne({ _id:req.params.id })
+        res.render('updateFarmerOne', { user: updatefarmerone })
     } catch (err) {
-        res.status(400).send("Unable to find items in the database");
+        res.status(400).send("Unable to find item in the database");
     }
 })
+
+router.post('/update', async (req, res) => {
+    try {
+        await farmerOneReg.findOneAndUpdate({_id:req.query.id}, req.body)
+        res.redirect('farmerOnes');
+    } catch (err) {
+        res.status(404).send("Unable to update item in the database");
+    }    
+})
+
 
 //Delete wrong registrations
 router.post('/delete', async(req,res)=>{

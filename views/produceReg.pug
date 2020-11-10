@@ -1,0 +1,52 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="stylesheet", href="/css/registraton.css")
+link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
+title Produce Registration
+.container
+  h3 Produce Registration
+  form(method="POST" action="/ufarmer")
+    .form-row
+      .form-group.col-md-6
+        label(for="fname") Name of Produce
+        input.form-control#fname(name="fname", type="text")
+      .form-group.col-md-6
+        label(for="Ward") Ward
+        select#ward.form-control(name="ward")
+          option(value="Ward 1") Ward 1
+          option(value="Ward 2") Ward 2
+          option(value="Ward 3") Ward 3
+          option(value="Ward 4") Ward 4
+    .form-row
+      .form-group.col-md-6
+        label(for="dob") Date Of Registration
+        input.form-control#dob(name="dob", type="date")
+      .form-group.col-md-6
+        label(for="price") Unit Price
+        input.form-control#dor(name="price", type="number")
+    .form-row
+      .form-group.col-md-6
+        label(for="qty") Quantity
+        input.form-control#nin(name="nin", type="text")
+      .form-group.col-md-6
+        label(for="phone") Contact
+        input.form-control#phone(name="phone", type="tel")
+    .form-row
+      .form-group.col-md-6
+        label(for="lname") Mode of Payment
+        input.form-control#sname(name="lname", type="text")
+      .form-group.col-md-6
+        label(for="ufid") Directions
+        input.form-control#ufid(name="ufid", type="text", placeholder="Directions to farm")
+    .form-group
+      label(for="acts") Produce Type
+      select#acts.form-control(name="acts")
+        option(value="Horticulture") Horticulture
+        option(value="Poultry") Poultry
+        option(value="Dairy") Dairy
+             
+    button.btn.btn-primary(style="width: 100%;", type="submit") Register
+script(src="/js/jquery-3.5.1.slim.min.js")
+script(src="/js/popper.min.js")
+script(src="/js/bootstrap_js/bootstrap.js")

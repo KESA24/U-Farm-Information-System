@@ -10,6 +10,7 @@ const path = require("path");
 require("dotenv/config");
 
 const officialRoutes = require("./controller/officialRoutes");
+const farmerRoutes = require("./controller/farmerRoutes")
 
 
 const app = express();
@@ -26,8 +27,13 @@ app.use((req, res, next) => {
     next();
 });
 
-
+//Agricultural Officer Routes
 app.use(officialRoutes);
+
+
+//Farmer One Routes
+app.use(farmerRoutes);
+
 
 
 mongoose.connect(process.env.DATABASE, {

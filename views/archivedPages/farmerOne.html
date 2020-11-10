@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadFarmerRegistration</title>
+    <link rel="stylesheet" href="/Public/css/farmerOneReg.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <form id="regForm" action="">
+        <h1>Register Farmer One</h1>
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">
+            <fieldset >
+                <legend >Personal Information</legend>
+                    <p>First Name<input class="input"  type="text"  placeholder="First name..." oninput="this.className = ''"></p>
+                    <p>Last Name<input class="input"  type="text"  placeholder="First name..." oninput="this.className = ''"></p>
+                    <p>Gender</p>
+                    <input class="radios" type="radio" id="male" name="gender" value="male">
+                    <label  for="male">Male</label><br>
+                    <input class="radios" type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+                    <p>Date Of Birth<input class="input" type="date" placeholder="Date of Birth" oninput="this.className = ''"></p>
+                    <p>Date of Registration<input class="input" type="date" placeholder="Date of Registration" oninput="this.className = ''"></p> 
+                    <p> National Identification Number<input class="input" type="text" placeholder="National Identification Number" oninput="this.className = ''"></p>
+                    <p>Phone Number<input class="input" type="tel" placeholder="PhoneNumber" oninput="this.className = ''"></p>
+            </fieldset>
+        </div>
+        <div class="tab">
+            <fieldset>
+                <legend> Ufarm Identification</legend>
+                    <p>Farmer One Number<input class="input" type="number" placeholder="Unique FO Number" oninput="this.className = ''"></p>
+                    <p>Ward<input class="input" type="text" placeholder="Ward" oninput="this.className = ''"></p> 
+                    <p>Home Location<input class="input" type="text" placeholder="Home Location" oninput="this.className = ''"></p>
+                    <p>Residence Type<input class="input"  type="text" placeholder="Residence Type" oninput="this.className = ''"></p>
+                    <p>Period of Stay<input class="input" type="number" placeholder="Period of Stay" oninput="this.className = ''"></p>
+                    <p>Activities<input class="input" type="text" placeholder="Activities" oninput="this.className = ''"></p> 
+            </fieldset>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>       
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>      
+     </form>
+     <script src="/Public/js/headfarmerReg.js"></script>
+</div>
+</body>
+</html>

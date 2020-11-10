@@ -1,0 +1,53 @@
+extends farmerOneslayout
+block content
+    header.card-header
+        h4.card-title Update Urban Farmer Credentials
+            form(method="post" action="/updateufarmer?id="+user._id)
+                table.table
+                    thead.thead-dark
+                        tr
+                            th First Name
+                            td 
+                                input.form-control(value = user.fname name ="fname")
+                        tr
+                            th Last Name
+                            td 
+                                input.form-control(value = user.lname name ="lname") 
+                        tr
+                            th Date Of Birth
+                            td 
+                                input.form-control(value = user.dob name ="dob")
+                        tr
+                            th Date of Registration
+                            td 
+                                input.form-control(value = user.dor name ="dor")
+                        tr
+                            th NIN
+                            td 
+                                input.form-control(value = user.nin name ="nin")
+                        tr
+                            th Tel
+                            td 
+                                input.form-control(value = user.phone name ="phone")
+                        tr
+                            th Ward
+                            td 
+                                input.form-control(value = user.ward name ="ward")
+                        tr
+                            th Ufarm ID
+                            td 
+                                input.form-control(value = user.ufid name ="ufid")
+                        tr
+                            th Activities
+                            td 
+                                input.form-control(value = user.acts name ="acts")
+                        tr
+                            th Gender
+                            td 
+                                input.form-control(value = user.gender name ="gender")
+           
+                        tr 
+                            td(colspan="2")
+                                button.btn.btn-dark.btn-block(type="submit") Update
+            
+
