@@ -1,50 +1,78 @@
 meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title HeadFarmerRegistration
-link(rel="stylesheet", href="/css/farmerOneReg.css")
-link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&display=swap", rel="stylesheet")
-.container
-  form#regForm(method="POST" action="/farmerOne")
-    h1 Register Farmer One
-    //-  One "tab" for each step in the form: 
-    .tab
-      fieldset
-        legend Personal Information
-        p
-          input(name="name", type="text", placeholder="Names...", oninput="this.className = \'\'")
-        p 
-          input(name="gender", type="text", placeholder="Gender", oninput="this.className = \'\'")
-          //- Gender
-          //- <label class="form-check-label"><input type="radio" class="form-check-input" name="optradio">Option 1</label>
-        p
-          input(name="dateOfBirth", type="", placeholder="Date of Birth", oninput="this.className = \'\'")
-        p
-          input(name="dateOfRegistration", type="", placeholder="Date of Registration", oninput="this.className = \'\'")
-        p
-          input(name="nin", type="text", placeholder="National Identification Number", oninput="this.className = \'\'")
-        p
-          input(name="phonenumber", type="tel", placeholder="PhoneNumber", oninput="this.className = \'\'")
-    .tab
-      fieldset
-        legend Ufarm Identification
-        p
-          input(name="foNumber", type="number", placeholder="Unique FO Number", oninput="this.className = \'\'")
-        p
-          input(name="ward", type="text", placeholder="Ward", oninput="this.className = \'\'")
-        p
-          input(name="homeLocation", type="text", placeholder="Home Location", oninput="this.className = \'\'")
-        p
-          input(name="residenceType", type="text", placeholder="Residence Type", oninput="this.className = \'\'")
-        p
-          input(name="stayperiod", type="number", placeholder="Period of Stay", oninput="this.className = \'\'")
-        p
-          input(name="activities", type="text", placeholder="Activities", oninput="this.className = \'\'")
-    div(style="overflow:auto;")
-      div(style="float:right;")
-        button#prevBtn(type="button", onclick="nextPrev(-1)") Previous
-        button#nextBtn(type="button", onclick="nextPrev(1)") Next
-    //-   Circles which indicates the steps of the form: 
-    div(style="text-align:center;margin-top:40px;")
-      span.step
-      span.step
-  script(src="/js/headfarmerReg.js")
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="stylesheet", href="/css/f1registration.css")
+link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
+title FarmerOne Registration
+.container 
+  h3 FarmerOne Registration
+  form(method="POST" action="/ufarmer")
+    .form-row
+      .form-group.col-md-6
+        label(for="fname") First Name
+        input.form-control#fname(name="fname", type="text")
+      .form-group.col-md-6
+        label(for="lname") Last Name
+        input.form-control#sname(name="lname", type="text")
+    .form-row
+      .form-group.col-md-6
+        label(for="dob") Date Of Birth
+        input.form-control#dob(name="dob", type="date")
+      .form-group.col-md-6
+        label(for="dor") Date of Registration
+        input.form-control#dor(name="dor", type="date")
+    .form-row
+      .form-group.col-md-6
+        label(for="nin") National Identification Number
+        input.form-control#nin(name="nin", type="text")
+      .form-group.col-md-6
+        label(for="phone") Contact
+        input.form-control#phone(name="phone", type="tel")
+    .form-row
+      .form-group.col-md-6
+        label(for="ufid") UniqueID
+        input.form-control#ufid(name="ufid", type="text", placeholder)
+      .form-group.col-md-6
+        label(for="ufid") Residence Type
+        input.form-control#ufid(name="ufid", type="text", placeholder)
+    .form-row
+      .form-group.col-md-6
+        label(for="Ward") Ward
+        select#ward.form-control(name="ward")
+          option(value="Ward 1") Ward 1
+          option(value="Ward 2") Ward 2
+          option(value="Ward 3") Ward 3
+          option(value="Ward 4") Ward 4
+      .form-group.col-md-6
+        label(for="acts") Farming Activities
+        select#acts.form-control(name="acts")
+            option(value="Horticulture") Horticulture
+            option(value="Poultry") Poultry
+            option(value="Dairy") Dairy
+    .form-row
+      .form-group.col-md-6
+        label(for="ufid") Home Location
+        input.form-control#ufid(name="ufid", type="text", placeholder)
+      .form-group.col-md-6
+        label(for="ufid") Stay Period
+        input.form-control#ufid(name="ufid", type="text", placeholder)
+    fieldset.form-group.col-md-12
+      .row
+        legend.col-form-label.col-sm-2.pt-0 Gender
+        .col-sm-10
+          .form-check
+            input.form-check-input#gender1(type="radio", name="gender", value="Female", checked)
+            label.form-check-label(for="gender1").
+              
+              Female
+              
+          .form-check
+            input.form-check-input#gender2(type="radio", name="gender", value="Male")
+            label.form-check-label(for="gender2").
+              
+              Male
+              
+    button.btn.btn-warning(style="width: 60%; margin-left: 100px;", type="submit" ) Register
+script(src="/js/jquery-3.5.1.slim.min.js")
+script(src="/js/popper.min.js")
+script(src="/js/bootstrap_js/bootstrap.js")

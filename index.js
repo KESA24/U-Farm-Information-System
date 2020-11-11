@@ -1,28 +1,38 @@
-
+//Import dependencies(Libraries)
 const express = require("express"); 
-
 const mongoose = require("mongoose"); 
-
 const bodyParser = require("body-parser");
-
 const path = require("path"); 
-
 require("dotenv/config");
 
-const passport = require('passport');
+const expressSession = require('express-session')({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+});
 
+const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+//Import Models to work with passport
+const AgricOfficers = require('./Models/AgriculturalOfficer')
 
+/* Passport Local Authentication Configs */
+// passport.use(AgricOfficers.createStrategy());
+// passport.serializeUser(AgricOfficers.serializeUser());
+// passport.deserializeUser(AgricOfficers.deserializeUser());
+
+//Import Routes
 const officialRoutes = require("./controller/officialRoutes");
 const farmerRoutes = require("./controller/farmerRoutes")
 
-
+// create an express application by calling the express() function
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json()); 
+
 app.use(passport.initialize());
 app.use(passport.session());
 

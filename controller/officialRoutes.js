@@ -20,7 +20,7 @@ router.get("/AOSignup", (req,res) => {
 })
 
 router.get('/agricdash', (req,res) => {
-    res.render("agricdash")
+    res.render("agricOfficerDash")
 });
 
 router.get('/farmerOne', (req,res) => {
@@ -55,7 +55,7 @@ router.post('/AOSignup', async(req,res)=>{
             console.log('save success')
             // res.send('Thank you for your registration!')
 
-            res.redirect('/agricdash')
+            res.redirect('/agricOfficerDash')
         })
     }
     catch(err) {

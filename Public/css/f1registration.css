@@ -5,11 +5,11 @@ body{
 }
 
 .container{
-    margin-top: 30px;
+    margin-top: 5px;
     align-items: center;
     border-radius: 20px;
     background-color: white;
-    height: 630px;
+    height: 700px;
     width: 50%;
     
 
@@ -18,12 +18,12 @@ body{
 h3{
     
     margin-left: 30%;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 /* Registration form */
 form{
-    padding: 20px;
+    padding: 5px;
     
 }
 
