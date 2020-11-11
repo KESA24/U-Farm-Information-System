@@ -34,10 +34,10 @@ title UFARM
     .loginform
       .close +
       img(src="images/avatar.png", alt)
-      form(action)
-        input.cred(type="text", placeholder="Username", required)
-        input.cred(type="password", placeholder="Password", required)
-        a(href="http://localhost:3000/agricdash").button Submit
+      form(method="POST" action="/login")
+        input.cred(type="text", name="username" placeholder="Username", required)
+        input.cred(type="password", name="password" placeholder="Password", required)
+        button#button Submit
 //- .farmwards
 //-   h2 Masajja is divided into four thriving farm wards
 //-   .row.row-cols-1.row-cols-md-4

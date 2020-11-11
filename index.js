@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path"); 
 require("dotenv/config");
+const passportLocalMongoose = require('passport-local-mongoose');
 
 const expressSession = require('express-session')({
   secret: 'secret',
@@ -12,15 +13,15 @@ const expressSession = require('express-session')({
 });
 
 const passport = require('passport');
-const passportLocalMongoose = require('passport-local-mongoose');
+
 
 //Import Models to work with passport
 const AgricOfficers = require('./Models/AgriculturalOfficer')
 
 /* Passport Local Authentication Configs */
-// passport.use(AgricOfficers.createStrategy());
-// passport.serializeUser(AgricOfficers.serializeUser());
-// passport.deserializeUser(AgricOfficers.deserializeUser());
+  passport.use(AgricOfficers.createStrategy());
+  passport.serializeUser(AgricOfficers.serializeUser());
+  passport.deserializeUser(AgricOfficers.deserializeUser());
 
 //Import Routes
 const officialRoutes = require("./controller/officialRoutes");
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json()); 
-
+app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -68,7 +69,19 @@ mongoose.connection
   });
 
 
+//Logout route
+//Logout
+app.post("/logout" , (req,res) =>{
+  if(req.session){
+      req.session.destroy( (err)=>{
+          if (err){
 
+          }else{
+              return res.redirect('/masajja');
+          }
+      })
+  }
+})
 
 
 

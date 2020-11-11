@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
+
 
 const AgricOfficerSchema = new mongoose.Schema({
 
@@ -16,5 +18,5 @@ const AgricOfficerSchema = new mongoose.Schema({
 
 });
 
-
+  AgricOfficerSchema.plugin(passportLocalMongoose);
   module.exports = mongoose.model('AgricOfficers', AgricOfficerSchema);
