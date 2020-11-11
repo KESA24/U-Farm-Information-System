@@ -24,12 +24,10 @@ form{
     padding: 20px;
     
 }
-
-button{
-    border-radius: 3px;
-    background-color: burlywood;
-    
+label{
+    margin-top: 5px;
 }
+
 .form-group i {
     position: absolute;
     top:40px;

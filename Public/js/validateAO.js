@@ -1,5 +1,3 @@
-
-
     // Access Elements in signup form
     const signupForm = document.getElementById("signupForm")
     const firstName  = document.getElementById("fname");
@@ -19,21 +17,58 @@
         const lnamevalue = lastName.value.trim();
         const usernamevalue = userName.value.trim();
         const passvalue = password.value.trim();
+        //Regex
+        let name = /^[A-Za-z]{5,15}/;
+        let alphanumeric = /^[0-9a-zA-Z]+$/;
+        //let nin = /^[0-9a-zA-Z]{13}+$/
+        let pass = /^\w{7,12}$/;
+
 
         if(fnamevalue === ''){
-            setErrorFor(firstName, "FirstName cannot be blank");
-        } else{
+            setErrorFor(firstName, "FirstName cannot be left blank");
+        }
+        else if(!fnamevalue.match(name)){
+            setErrorFor(firstName, "Provide a valid name with 5-15 characters")
+        }    
+         else{
             setSuccessFor(firstName);
+        };
+
+        if(lnamevalue === ''){
+            setErrorFor(lastName, "LastName cannot be left blank");   
+        } 
+        else if(!lnamevalue.match(name)){
+            setErrorFor(lastName, "Provide a valid name with 5-15 characters")
+        }
+        else{
+            setSuccessFor(lastName);
+        };
+
+        if(usernamevalue === ''){
+            setErrorFor(userName, "UserName cannot be left blank");
+        }
+        else if(!usernamevalue.match(alphanumeric)){
+            setErrorFor(userName, "Provide a valid username with alphanumeric characters")
+        }   
+         else{
+            setSuccessFor(userName);
+        }
+        if(passvalue=== ''){
+            setErrorFor(password, "Password cannot be left blank");
+        }else if(!passvalue.match(pass)){
+            setErrorFor(password, "Provide a valid password with atleastt one Number and 7 characters")
+        }
+         else{
+            setSuccessFor(password);
         }
     }
 
     function setErrorFor(input, message){
         const formgroup = input.parentElement;
         const small = formgroup.querySelector('small');
-
-        small.innerText = message;
-
         formgroup.className = "form-group error";
+        small.innerText = message;
+        
     }
 
     function setSuccessFor(input){
@@ -41,49 +76,14 @@
         formgroup.className = "form-group success";
 
     }   
-
-
-
-
-
-    // //Regex
-    // let name = /^\w{5-50}$/;
-    // let alphanumeric = /^[0-9a-ZA-Z]+$/;
-    // let nin = /^[0-9a-ZA-Z]{13}+$/
-    // let pass = /^\w{7,12}$/;
-
-
-
-    
-    // if (firstName.value.match(name)){
-    //     console.log(firstName.value);
-    //     firstName.style.border = "2px solid green";
-    // }
-    // else {
-    //     alert("Please provide a valid name");
-    //     firstName.focus();
-    //     firstName.style.border = "2px solid red";
-    // }
-
-    // if (lastName.value.match(name)){
-    //     console.log(lastName.value);
-    //     lastName.style.border = "2px solid green";
-    // }
-    // else {
-    //     alert("Please provide a valid name");
-    //     lastName.focus();
-    //     lastName.style.border = "2px solid red";
-    // }
  
 
-    
 
 
-
-
+//Project Conditions
 //  • Username should be alphanumeric and not empty
 // • All names should be strings between 5 to 50 characters
 // • NiN should be 13 alphanumeric characters
 // • Prices are in Ugx
 // • Younger than 10 years old should not be registered as farmerOne, urban farmers etc
-// • No form should be submitted when empty
+// • No form should be submitted when empty..chech

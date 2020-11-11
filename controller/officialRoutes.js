@@ -3,25 +3,50 @@ const express = require('express');
 
 const router = express.Router();
 
-const farmerOneReg = require("../Models/farmerOne")
+
+const agricOfficerSignUp = require("../Models/AgriculturalOfficer")
+const farmerOneReg = require("../Models/FarmerOne")
 
 // GET ROUTES
 
+//Landing Page
 router.get('/masajja', (req,res) => {
-    res.render("agricOfficer")
+    res.render("officialLand")
 });
+
+//SignUpPage
+router.get("/AOSignup", (req,res) => {
+    res.render("agricOfficerSignUp")
+})
 
 router.get('/agricdash', (req,res) => {
     res.render("agricdash")
 });
 
 router.get('/farmerOne', (req,res) => {
-    res.render("farmerOne")
+    res.render("farmerOneReg")
 });
 
 
 
 //POST ROUTES
+//Save AgricOfficer Credentials to database
+router.post('/AOSignup', async(req,res)=>{
+    try{
+        const registeredAgricOfficer = new agricOfficerSignUp(req.body);
+        await registeredAgricOfficer.save(() => {
+            console.log('save success')
+             res.redirect("/masajja")
+        })
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong.')
+        console.log(err)
+    }   
+})
+
+
+
 //Save farmerOnes to the database
  router.post('/farmerOne', async(req,res)=>{
     try{
@@ -58,7 +83,7 @@ router.get('/farmerOnes', async (req, res) => {
 router.get('/update/:id', async (req, res) => {
     try {
         const updatefarmerone = await farmerOneReg.findOne({ _id:req.params.id })
-        res.render('updateFarmerOne', { user: updatefarmerone })
+        res.render('farmerOneUpdate', { user: updatefarmerone })
     } catch (err) {
         res.status(400).send("Unable to find item in the database");
     }
