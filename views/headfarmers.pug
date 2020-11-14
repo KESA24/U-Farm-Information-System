@@ -1,0 +1,103 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/table.css")
+script(src="https://kit.fontawesome.com/a076d05399.js")
+link(rel="stylesheet", href="/css/footer.css")
+link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
+title Farmer Ones
+table.content-table
+  header.card-header
+        h4.card-title Farmer Ones
+  thead
+    tr
+      th Names
+      th Gender
+      th Date Of Birth
+      th Date of Registration
+      th NIN
+      th Tel
+      th FO Number
+      th Ward
+      th Home Location
+      th Residence Type
+      th Period of Stay
+      th Activities
+      th Delete
+      th Edit
+  tbody
+    if users.length
+    each user in users
+        tr
+            td #{user.name}
+            td #{user.gender}
+            td #{user.dateOfBirth}
+            td #{user.dateOfRegistration}
+            td #{user.nin}
+            td #{user.phonenumber}
+            td #{user.foNumber}
+            td #{user.Ward}
+            td #{user.homeLocation}
+            td #{user.residenceType}
+            td #{user.stayperiod}
+            td #{user.activities}
+            td
+                form(method="post" action='/delete')
+                    input(type="hidden", placeholder="", name="id", value=user._id)
+                    button.btn.btn-dark.btn-block(type="submit") Delete
+            td
+                form(method="post" action= '/update/'+user._id)
+                    input(type="hidden", placeholder="", name="id", value=user._id)
+                    button.btn.btn-dark.btn-block(type="submit") Update
+                //- a(href='/update/'+user._id) Update
+
+    else
+        p No registrations yet :(
+
+footer
+  .main-content
+    .left.box
+      h2 About us
+      .content
+        p.
+          
+          We promote and support the urban farming practice by easing market access to improve on family earnings and livelihoods
+          
+        .social
+          a(href)
+            span.fab.fa-facebook-f
+          a(href="#")
+            span.fab.fa-twitter
+          a(href)
+            span.fab.fa-instagram
+          a(href)
+            span.fab.fa-youtube
+    .center.box
+      h2 Address
+      .content
+        .place
+          span.fas.fa-map-marker-alt
+          span.text Kampala, Uganda
+        .phone
+          span.fas.fa-phone-alt
+          span.text +256-70619933
+        .email
+          span.fas.fa-envelope
+          span.text info@ufarm.co.ug
+    .right.box
+      h2 Contact us
+      .content
+        form(action="#")
+          .email
+            .text Email *
+            input(type="email", required)
+          .msg
+            .text Message *
+            textarea#msgForm(rows="2", cols="70", required)
+            br
+            .btn
+              button(type="submit") Send
+            .bottom
+              center
+                span.credit Created By the Agritect|
+                span.far.fa-copyright
+                |  2020 All rights reserved.

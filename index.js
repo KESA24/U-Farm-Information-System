@@ -2,9 +2,16 @@
 const express = require("express"); 
 const mongoose = require("mongoose"); 
 const bodyParser = require("body-parser");
-const path = require("path"); 
+const path = require("path");
+
+//Import Routes
+const officialRoutes = require("./routes/officialRoutes");
+const farmerRoutes = require("./routes/farmerRoutes")
 require("dotenv/config");
+
 const passportLocalMongoose = require('passport-local-mongoose');
+//Import Models to work with passport
+const AgricOfficers = require('./Models/AgriculturalOfficer')
 
 const expressSession = require('express-session')({
   secret: 'secret',
@@ -14,46 +21,10 @@ const expressSession = require('express-session')({
 
 const passport = require('passport');
 
-
-//Import Models to work with passport
-const AgricOfficers = require('./Models/AgriculturalOfficer')
-
-/* Passport Local Authentication Configs */
-  passport.use(AgricOfficers.createStrategy());
-  passport.serializeUser(AgricOfficers.serializeUser());
-  passport.deserializeUser(AgricOfficers.deserializeUser());
-
-//Import Routes
-const officialRoutes = require("./controller/officialRoutes");
-const farmerRoutes = require("./controller/farmerRoutes")
-
 // create an express application by calling the express() function
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json()); 
-app.use(expressSession);
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views"));
-
-app.use((req, res, next) => {
-    console.log('A new request received at ' + Date.now());
-    next();
-});
-
-//Agricultural Officer Routes
-app.use(officialRoutes);
-
-
-//Farmer One Routes
-app.use(farmerRoutes);
-
-
-
+// DB Connection
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -68,8 +39,32 @@ mongoose.connection
     console.log(`Connection error: ${err.message}`);
   });
 
+//Configs
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+//Static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-//Logout route
+app.use((req, res, next) => {
+    console.log('A new request received at ' + Date.now());
+    next();
+});
+
+app.use(bodyParser.urlencoded({extended: true}))
+// app.use(bodyParser.json()); 
+app.use(expressSession);
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* Passport Local Authentication Configs */
+passport.use(AgricOfficers.createStrategy());
+passport.serializeUser(AgricOfficers.serializeUser());
+passport.deserializeUser(AgricOfficers.deserializeUser());
+
+
+app.use( "/", officialRoutes);
+app.use(  "/", farmerRoutes);
+
 //Logout
 app.post("/logout" , (req,res) =>{
   if(req.session){
@@ -83,7 +78,10 @@ app.post("/logout" , (req,res) =>{
   }
 })
 
-
+//Random searches on server.
+app.get('*',(req,res)=>{
+  res.send('error page')
+})
 
 
 app.listen(3000, () => console.log("Listening on port 3000")); //Created a server and have it listen on port 3000

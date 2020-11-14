@@ -6,6 +6,11 @@ const urbanFarmerReg = require("../Models/urbanFarmer")
 
 // FarmerOne Routes
 
+// Get dashboard
+router.get('/farmerOneDash', (req,res)=>{
+    res.render("farmerOneDash")
+})
+
 //GET route for urbanfarmer Registration
 
 router.get('/ufarmer', (req,res) => {
@@ -19,9 +24,8 @@ router.post('/ufarmer', async(req,res)=>{
         const registeredUrbanFarmer = new urbanFarmerReg(req.body);
         await registeredUrbanFarmer.save(() => {
             console.log('save success')
-             res.send('Thank you for your registration!')
-
-            //res.redirect('/agricdash')
+            //  res.send('Thank you for your registration!')
+            res.redirect('/farmerOneDash')
         })
     }
     catch(err) {
@@ -76,9 +80,15 @@ router.post('/deleteufarmer', async(req,res)=>{
 // End of FarmerOne Routes
 
 //Urban Farmer Routes
+router.get('/ufarmerdash', (req,res) => {
+    res.render("ufarmerDash")
+}); 
+
+
 router.get('/uproduce', (req,res) => {
     res.render("produceReg")
 }); 
+
 
 
 

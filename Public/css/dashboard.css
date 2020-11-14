@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
 body {
   font-size: .875rem;
 }
 
+.sticky-top{
+  background: burlywood;
+}
 .feather {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
+}
+
+.form-control{
+  width: 70%;
 }
 
 /*

@@ -1,15 +1,12 @@
 
 const express = require('express');
-
 const router = express.Router();
-
 const passport = require('passport');
-
 
 const agricOfficerSignUp = require("../Models/AgriculturalOfficer")
 const farmerOneReg = require("../Models/FarmerOne")
 
-// GET ROUTES
+//Agricultural Officer site journey
 
 //Landing Page
 router.get('/masajja', (req,res) => {
@@ -21,35 +18,6 @@ router.get("/AOSignup", (req,res) => {
     res.render("agricOfficerSignUp")
 })
 
-//Login route
-
-router.post('/login',passport.authenticate('local'), (req,res) =>{
-    req.session.user = req.user;
-    res.redirect('/agricdash')
-})
-
-
-
-router.get('/agricdash', (req,res) => {
-    
-    res.render("agricOfficerDash")
-    
-    
-
-});
-
-router.get('/farmerOne', (req,res) => {
-    if(req.session.user){
-    res.render("farmerOneReg")
-    }
-    console.log("Can't find session")
-    res.redirect("/masajja")
-
-});
-
-
-
-//POST ROUTES
 //Save AgricOfficer Credentials to database
 router.post('/AOSignup', async(req,res)=>{
     try{
@@ -59,7 +27,6 @@ router.post('/AOSignup', async(req,res)=>{
                 throw err
             }
             res.redirect('/masajja')
-
         })
     }
     catch(err) {
@@ -67,9 +34,31 @@ router.post('/AOSignup', async(req,res)=>{
         console.log(err)
     }
 })
-    
 
 
+//Login route
+router.post('/login',passport.authenticate('local'), (req,res) =>{
+    req.session.user = req.user;
+    res.redirect('/agricdash')
+})
+//Views Dashboard
+router.get('/agricdash', (req,res) => {
+     if(req.session.user){
+    res.render("agricOfficerDash")
+} else{
+    console.log("Can't find session")
+    res.redirect("/masajja")
+}
+});
+//Registers FarmerOne
+router.get('/farmerOne', (req,res) => {
+    if(req.session.user){
+    res.render("farmerOneReg")
+}else{
+    console.log("Can't find session")
+    res.redirect("/masajja")
+}
+});
 
 //Save farmerOnes to the database
  router.post('/farmerOne', async(req,res)=>{
@@ -85,9 +74,10 @@ router.post('/AOSignup', async(req,res)=>{
         res.status(400).send('Sorry! Something went wrong.')
         console.log(err)
     }  
-}
+}else{
     console.log("Can't find session")
     res.redirect("/masajja")
+}
 })
 
 // Retrieve/Search for farmerOnes in the database
@@ -100,14 +90,15 @@ router.get('/farmerOnes', async (req, res) => {
         if (req.query.name) {
             items = await farmerOneReg.find({ name: req.query.name })
         }
-        res.render('farmerOnes', { title: 'Farmer Ones', users: items })
+        res.render('headfarmers', { title: 'Farmer Ones', users: items })
     } catch (err) {
         res.status(400).send("Unable to find items in the database");
     }
-}
+} else{
     console.log("Can't find session")
     res.redirect("/masajja")
-    })
+}   
+})
 
 //Update  FarmerOne Credentials
 router.get('/update/:id', async (req, res) => {
@@ -118,9 +109,10 @@ router.get('/update/:id', async (req, res) => {
     } catch (err) {
         res.status(400).send("Unable to find item in the database");
     }
-}
+}else{
     console.log("Can't find session")
     res.redirect("/masajja")
+}
 })
 
 router.post('/update', async (req, res) => {
@@ -131,11 +123,11 @@ router.post('/update', async (req, res) => {
     } catch (err) {
         res.status(404).send("Unable to update item in the database");
     }   
-}
+}else{
     console.log("Can't find session")
     res.redirect("/masajja")
+}
 })
-
 
 //Delete wrong registrations
 router.post('/delete', async(req,res)=>{
@@ -146,11 +138,14 @@ router.post('/delete', async(req,res)=>{
     }catch(err){
         res.status(400).send("Unable to delete item in the database") 
     }
-    } 
+
+} else{
     console.log("Can't find session")
-    res.redirect("/masajja") 
-})
+    res.redirect("/masajja")
+}
+ 
+});
 
 
 
-    module.exports = router;
+module.exports = router;

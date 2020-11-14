@@ -2,33 +2,33 @@ meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 title Urban Farmers
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="stylesheet", href="/css/registraton.css")
-.containerufs
-  h3 Registered Urban Farmers
-    |&nbsp
-    div.form-row
-        div.col.form-group.col-md-10    
-            form.search( action='/ufarmers')
-                div.form-row
-                    div.col-md-8
-                        input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
-                    div.col-md-4
-                        input.btn.btn-dark.btn-block(type="submit") 
-  table.table.table-bordered
+link(rel="stylesheet", href="/css/table.css")
+link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
+table.content-table
+    header.card-header(style="background-color: burlywood")
+        h4.card-title Registered Urban Farmers   
+    form.search( action='/ufarmers')
+        .form-row
+            .form-group.col-md-6
+                input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+            .form-group.col-md-2
+                    input.btn.btn-dark.btn-block(type="submit") 
+
+                        
     thead
       tr
-        th(scope="col") FirstName
-        th(scope="col") Last Name
-        th(scope="col") Date of Birth
-        th(scope="col") Date of Reg
-        th(scope="col") NIN
-        th(scope="col") Contact
-        th(scope="col") Ward
-        th(scope="col") Ufarm ID
-        th(scope="col") Activities
-        th(scope="col") Gender
-        th(scope="col") Delete
-        th(scope="col") Update
+        th FirstName
+        th Last Name
+        th Date of Birth
+        th Date of Reg
+        th NIN
+        th Contact
+        th Ward
+        th Ufarm ID
+        th Activities
+        th Gender
+        th Delete
+        th Update
         
 
     tbody
@@ -51,7 +51,10 @@ link(rel="stylesheet", href="/css/registraton.css")
                             input(type="hidden", placeholder="", name="id", value=user._id)
                             button.btn.btn-dark.btn-block(type="submit") Delete
                     td
-                        a(href='/updateufarmer/'+user._id) Update
+                        form(method="GET" action= '/updateufarmer/'+user._id)
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Update
+                        //- a(href='/updateufarmer/'+user._id) Update
 
             else
                 p No registrations yet :(      

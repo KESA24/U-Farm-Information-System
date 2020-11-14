@@ -6,7 +6,7 @@
     const password   = document.getElementById("pass");
 
     signupForm.addEventListener('submit', (e) =>{
-        e.preventDefault();
+        // e.preventDefault();
 
         checkInput();
     });

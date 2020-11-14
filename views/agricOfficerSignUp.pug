@@ -2,6 +2,7 @@ meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
 link(rel="stylesheet", href="/css/agricOffSignUp.css")
+link(rel="icon", href="images/favicon.jpg", sizes="16x16", type="image/png")
 script(src="https://kit.fontawesome.com/8af5379226.js", crossorigin="anonymous")
 link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
 title Agricultural Officer SignUp
@@ -32,9 +33,15 @@ title Agricultural Officer SignUp
       i.fas.fa-check-circle
       i.fas.fa-exclamation-circle
       small Error Message
-    button.btn.btn-warning(style="width: 100%; margin-top: 20px;") Submit
-
+    .form-group.col-md-12
+      label(for="role") Role
+      select.form-control(name="role")
+          option(value="Agricultural Officer") Agricultural Officer
+          option(value="Farmer One") Farmer One
+          option(value="Urban Farmer") Urban Farmer
+          option(value="Urban Farmer") Customer
+    button.btn.btn-warning(style="width: 100%; margin-top: 20px;", type="submit") Submit
+script(src="/js/validateAO.js")
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")
-//- script(src="/js/validateAO.js")

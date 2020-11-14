@@ -1,6 +1,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: lavender
+    background: url('../images/background\ \(4\).jpg') 
+
     
 }
 
@@ -9,7 +10,8 @@ body{
     align-items: center;
     border-radius: 20px;
     background-color: white;
-    height: 550px;
+    height: 620px;
+    box-shadow: 4px 4px 4px 4px black;
     
 
 }
