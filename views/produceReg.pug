@@ -6,7 +6,7 @@ link(rel="stylesheet", href="/css/registraton.css")
 title Produce Registration
 .container
   h3 Produce Registration
-  form(method="POST" action="/ufarmer")
+  form(method="POST" action="/ufarmer" enctype="multipart/form-data")
     .form-row
       .form-group.col-md-6
         label(for="fname") Name of Produce
@@ -50,8 +50,8 @@ title Produce Registration
           option(value="Horticulture") Organic
           option(value="Poultry") Non Organic
       .form-group.col-md-6
-        label(for="qty") Upload Picture
-        input.form-control#nin(name="nin", type="text")
+        label(for="image") Upload Picture
+        input.form-control-file#image(name="image", type="file")
         
              
   button.btn.btn-primary(style="width: 100%;", type="submit") Register
