@@ -1,0 +1,170 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1,shrink-to-fit=no")
+title Ufarm
+link(href="/css/bootstrap_css/bootstrap.min.css", rel="stylesheet")
+link(href="/css/onlinemarket.css", rel="stylesheet")
+link(rel="shortcut icon", href="/images/favicon.jpg", type="image/x-icon")
+script(src="https://kit.fontawesome.com/a076d05399.js")
+//-  Top Navigation Bar 
+nav.site-header.sticky-top.py-1
+  .container.d-flex.flex-column.flex-md-row.justify-content-between
+    a.py-2(href="#", aria-label="Product")
+      img(src="/images/favicon.jpg", width="30", height="30")
+    a.py-2.d-none.d-md-inline-block(href="#") Home
+    a.py-2.d-none.d-md-inline-block(href="#") Product
+    a.py-2.d-none.d-md-inline-block(href="#") Features
+    a.py-2.d-none.d-md-inline-block(href="#") Enterprise
+    a.py-2.d-none.d-md-inline-block(href="#") Support
+    a.py-2.d-none.d-md-inline-block(href="#") Pricing
+    a.py-2.d-none.d-md-inline-block(href="#") Cart
+//-   Information slide 
+main(role="main")
+  #myCarousel.carousel.slide(data-ride="carousel")
+    ol.carousel-indicators
+      li.active(data-target="#myCarousel", data-slide-to="0")
+      li(data-target="#myCarousel", data-slide-to="1")
+      li(data-target="#myCarousel", data-slide-to="2")
+    .carousel-inner
+      .carousel-item.active
+        img(src="/images/background (7).jpg", alt)
+        .container
+          .carousel-caption.text-left
+            h1 Example headline.
+            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            p
+              a.btn.btn-lg.btn-primary(href="#", role="button") Sign up today
+      .carousel-item
+        img(src="/images/bell-pepper-569070_1920.jpg", alt)
+        .container
+          .carousel-caption
+            h1 Another example headline.
+            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            p
+              a.btn.btn-lg.btn-primary(href="#", role="button") Learn more
+      .carousel-item
+        img(src="/images/basil-932079_1920.jpg", alt)
+        .container
+          .carousel-caption.text-right
+            h1 One more for good measure.
+            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            p
+              a.btn.btn-lg.btn-primary(href="#", role="button") Browse gallery
+    a.carousel-control-prev(href="#myCarousel", role="button", data-slide="prev")
+      span.carousel-control-prev-icon(aria-hidden="true")
+      span.sr-only Previous
+    a.carousel-control-next(href="#myCarousel", role="button", data-slide="next")
+      span.carousel-control-next-icon(aria-hidden="true")
+      span.sr-only Next
+    //- Product Listings 
+  .products
+    .row.row-cols-1.row-cols-md-4
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/tomatoes2.jpg", alt="...")
+          .card-body
+            h5.card-title Tomatoes(kg)
+            p.card-text UGX.35OO
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/onions2.jpg", alt="...")
+          .card-body
+            h5.card-title Onion(kg)
+            p.card-text UGX.5000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/green-peppr-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title GreenPepper(kgs)
+            p.card-text UGX 5000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/carrots2.jpg", alt="...")
+          .card-body
+            h5.card-title Carrots(kg)
+            p.card-text UGX.3000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+    .row.row-cols-1.row-cols-md-4
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/baby-spinach-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title Baby Spinach
+            p.card-text UGX.3000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/brocolli.jpg", alt="...")
+          .card-body
+            h5.card-title Brocolli
+            p.card-text UGX.6000
+            form(method="GET", action="/book")
+             button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/cauliflower-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title CauliFlower
+            p.card-text UGX.4500
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/cabbage-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title Cabbage
+            p.card-text UGX.2000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+    .row.row-cols-1.row-cols-md-4
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/cucumber-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title Cucumber(Kg)
+            p.card-text UGX.3000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/lettuce-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title Lettuce
+            p.card-text UGX.3000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/plantain.jpg", alt="...")
+          .card-body
+            h5.card-title Plantain
+            p.card-text UGX.4000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+      .col.mb-4
+        .card.h-100
+          img.card-img-top(src="/images/ProductListings/spinach-550x550.jpg", alt="...")
+          .card-body
+            h5.card-title Spinach
+            p.card-text UGX.8000
+            form(method="GET", action="/book")
+              button.btn.btn-primary Add to cart
+//-  Footer 
+footer.container
+  p.float-right
+    a(href="#") Back to top
+  p
+    | © Created by the Agritect | 2020 All rights reserved. · 
+    a(href="#") Privacy
+    |  · 
+    a(href="#") Terms
+script(src="/js/jquery-3.5.1.slim.min.js")
+script(src="/js/popper.min.js")
+script(src="/js/bootstrap_js/bootstrap.bundle.min.js")

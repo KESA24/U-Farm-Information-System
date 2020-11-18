@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
 
+
 //Import Routes
 const officialRoutes = require("./routes/officialRoutes");
-const farmerRoutes = require("./routes/farmerRoutes")
+const farmerOneRoutes = require("./routes/farmerOneRoutes")
+const urbanFarmerRoutes = require("./routes/urbanFarmerRoutes")
+const customerRoutes = require("./routes/customerRoutes")
 require("dotenv/config");
 
 const passportLocalMongoose = require('passport-local-mongoose');
@@ -63,7 +66,9 @@ passport.deserializeUser(AgricOfficers.deserializeUser());
 
 
 app.use( "/", officialRoutes);
-app.use(  "/", farmerRoutes);
+app.use(  "/", farmerOneRoutes);
+app.use("/", customerRoutes);
+app.use("/",urbanFarmerRoutes)
 
 //Logout
 app.post("/logout" , (req,res) =>{

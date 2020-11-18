@@ -1,17 +1,16 @@
 meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title UrbanFarmers
+title Produce
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
 link(rel="stylesheet", href="/css/table.css")
 link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-script(src="https://kit.fontawesome.com/a076d05399.js")
 table.content-table
     header.card-header(style="background-color: burlywood")
-        h4.card-title Registered Urban Farmers   
+        h4.card-title Produce List 
     form.search( action='/ufarmers')
         .form-row
             .form-group.col-md-6
-                input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
+                input.form-control(name='produceType' placeholder="Enter your search term(type) ...")
             .form-group.col-md-2
                     input.btn.btn-dark.btn-block(type="submit")                        
     thead
@@ -51,13 +50,7 @@ table.content-table
                             input(type="hidden", placeholder="", name="id", value=user._id)
                             button.btn.btn-dark.btn-block(type="submit") Update
             else
-                p No registrations yet :(  
-footer(style="margin-top: 30px")
-.bottom
-  center
-    span.credit Created By the Agritect |
-    span.far.fa-copyright
-    |2020 All rights reserved.    
+                p No registrations yet :(      
         
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")

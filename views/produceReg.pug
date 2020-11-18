@@ -1,16 +1,16 @@
 meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
+link(rel="icon" href="images/favicon.jpg")
 link(rel="stylesheet", href="/css/registraton.css")
 title Produce Registration
 .container
   h3 Produce Registration
-  form(method="POST" action="/ufarmer" enctype="multipart/form-data")
+  form(method="POST" action="/uproduce" enctype="multipart/form-data")
     .form-row
       .form-group.col-md-6
-        label(for="fname") Name of Produce
-        input.form-control#fname(name="fname", type="text")
+        label(for="pname") Name of Produce
+        input.form-control#fname(name="pname", type="text")
       .form-group.col-md-6
         label(for="Ward") Ward Name
         select#ward.form-control(name="ward")
@@ -21,40 +21,38 @@ title Produce Registration
     .form-row
       .form-group.col-md-6
         label(for="dob") Date Of Registration
-        input.form-control#dob(name="dob", type="date")
+        input.form-control#dob(name="dateOfRegistration", type="date")
       .form-group.col-md-6
         label(for="price") Unit Price(UGX)
         input.form-control#dor(name="price", type="number")
     .form-row
       .form-group.col-md-6
         label(for="qty") Quantity
-        input.form-control#nin(name="nin", type="number")
+        input.form-control#pquantity(name="pquantity", type="number")
       .form-group.col-md-6
         label(for="ufid") Directions
-        input.form-control#ufid(name="ufid", type="text", placeholder="Directions to farm")
+        input.form-control#dir(name="directions", type="text", placeholder="Directions to farm")
     .form-row
       .form-group.col-md-6
-        label(for="lname") Mode of Payment
-        select#acts.form-control(name="acts")
-          option(value="Horticulture") Cash
-          option(value="Poultry") Mobile Money
+        label(for="modeOfPayment") Mode of Payment
+        select#mop.form-control(name="modeOfPayment")
+          option(value="Cash") Cash
+          option(value="Mobile Money") Mobile Money
       .form-group.col-md-6
         label(for="phone") Mode of Delivery
-        select#acts.form-control(name="acts")
-          option(value="Horticulture") Pickup
-          option(value="Poultry") Home Delivery
+        select#mod.form-control(name="modeOfDelivery")
+          option(value="Pickup") Pickup
+          option(value="Home Deliver") Home Delivery
     .form-row
       .form-group.col-md-6
         label(for="acts") Produce Type
-        select#acts.form-control(name="acts")
-          option(value="Horticulture") Organic
-          option(value="Poultry") Non Organic
+        select#ptype.form-control(name="produceType")
+          option(value="Organic") Organic
+          option(value="Non Organic") Non Organic
       .form-group.col-md-6
         label(for="image") Upload Picture
-        input.form-control-file#image(name="image", type="file")
-        
-             
-  button.btn.btn-primary(style="width: 100%;", type="submit") Register
+        input.form-control-file#image(name="pImage", type="file")
+      button.btn.btn-warning(style="width: 100%;", type="submit") Register
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")

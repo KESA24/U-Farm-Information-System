@@ -2,60 +2,59 @@ meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
 link(rel="stylesheet", href="/css/f1registration.css")
-link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
 title FarmerOne Registration
 .container 
   h3 FarmerOne Registration
-  form(method="POST" action="/ufarmer")
+  form(method="POST" action="/farmerOne")
     .form-row
       .form-group.col-md-6
         label(for="fname") First Name
-        input.form-control#fname(name="fname", type="text")
+        input.form-control#fname(name="fname", type="text" placeholder="Allan")
       .form-group.col-md-6
         label(for="lname") Last Name
-        input.form-control#sname(name="lname", type="text")
+        input.form-control#lname(name="lname", type="text" placeholder="Assimwe")
     .form-row
       .form-group.col-md-6
         label(for="dob") Date Of Birth
-        input.form-control#dob(name="dob", type="date")
+        input.form-control#dob(name="dob", type="date" )
       .form-group.col-md-6
         label(for="dor") Date of Registration
-        input.form-control#dor(name="dor", type="date")
+        input.form-control#dor(name="dor", type="date" )
     .form-row
       .form-group.col-md-6
         label(for="nin") National Identification Number
-        input.form-control#nin(name="nin", type="text")
+        input.form-control#nin(name="nin", type="text" placeholder="CF5R9IK097890")
       .form-group.col-md-6
         label(for="phone") Contact
-        input.form-control#phone(name="phone", type="tel")
+        input.form-control#phone(name="phone", type="number" placeholder="0786145913")
     .form-row
       .form-group.col-md-6
         label(for="ufid") UniqueID
-        input.form-control#ufid(name="ufid", type="text", placeholder)
+        input.form-control#foid(name="foid", type="string", placeholder="AA789")
       .form-group.col-md-6
         label(for="ufid") Residence Type
-        input.form-control#ufid(name="ufid", type="text", placeholder)
+        input.form-control#restype(name="restype", type="text", placeholder="Apartment")
     .form-row
       .form-group.col-md-6
-        label(for="Ward") Ward
-        select#ward.form-control(name="ward")
+        label(for="ward") Ward
+        select#ward.form-control(name="ward" type="text")
           option(value="Ward 1") Ward 1
           option(value="Ward 2") Ward 2
           option(value="Ward 3") Ward 3
           option(value="Ward 4") Ward 4
       .form-group.col-md-6
         label(for="acts") Farming Activities
-        select#acts.form-control(name="acts")
+        select#acts.form-control(name="acts" type="text")
             option(value="Horticulture") Horticulture
             option(value="Poultry") Poultry
             option(value="Dairy") Dairy
     .form-row
       .form-group.col-md-6
-        label(for="ufid") Home Location
-        input.form-control#ufid(name="ufid", type="text", placeholder)
+        label(for="home") Home Location
+        input.form-control#home(name="home", type="text", placeholder="Masajja A")
       .form-group.col-md-6
-        label(for="ufid") Stay Period
-        input.form-control#ufid(name="ufid", type="text", placeholder)
+        label(for="stayperiod") Stay Period(Years)
+        input.form-control#foid(name="stayperiod", type="number", placeholder="13" )
     fieldset.form-group.col-md-12
       .row
         legend.col-form-label.col-sm-2.pt-0 Gender
@@ -63,15 +62,11 @@ title FarmerOne Registration
           .form-check
             input.form-check-input#gender1(type="radio", name="gender", value="Female", checked)
             label.form-check-label(for="gender1").
-              
-              Female
-              
+            |Female   
           .form-check
             input.form-check-input#gender2(type="radio", name="gender", value="Male")
-            label.form-check-label(for="gender2").
-              
-              Male
-              
+            label.form-check-label(for="gender2"). 
+            |Male         
     button.btn.btn-warning(style="width: 60%; margin-left: 100px;", type="submit" ) Register
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")

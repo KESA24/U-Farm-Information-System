@@ -4,7 +4,7 @@ const router = express.Router();
 const passport = require('passport');
 
 const agricOfficerSignUp = require("../Models/AgriculturalOfficer")
-const farmerOneReg = require("../Models/FarmerOne")
+const farmerOneReg = require("../Models/FarmerOnes")
 
 //Agricultural Officer site journey
 
@@ -61,24 +61,25 @@ router.get('/farmerOne', (req,res) => {
 });
 
 //Save farmerOnes to the database
- router.post('/farmerOne', async(req,res)=>{
-    if(req.session.user){
-    try{
-        const registeredFarmerOne = new farmerOneReg(req.body);
-        await registeredFarmerOne.save(() => {
-            console.log('save success')
-            res.redirect('/agricOfficerDash')
-        })
+ router.post("/farmerOne", async (req,res)=>{
+     if(req.session.user){
+         try{
+             const registerFarmerOne = new farmerOneReg(req.body);
+             await registerFarmerOne.save(()=>{
+                 console.log("save success")
+                 res.redirect('/agricdash')
+             })
+         }
+         catch(err) {
+            res.status(400).send('Sorry! Something went wrong.')
+            console.log(err)
+        }
+     }
+     else{
+        console.log("Can't find session")
+        res.redirect("/masajja")
     }
-    catch(err) {
-        res.status(400).send('Sorry! Something went wrong.')
-        console.log(err)
-    }  
-}else{
-    console.log("Can't find session")
-    res.redirect("/masajja")
-}
-})
+ })
 
 // Retrieve/Search for farmerOnes in the database
 

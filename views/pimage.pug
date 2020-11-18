@@ -1,0 +1,11 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="icon" href="images/favicon.jpg")
+link(rel="stylesheet", href="/css/registraton.css")
+title Produce Registration
+.container
+  h3 Produce Registration
+  if items.length
+  each item in items
+    img(src="/uploads/"+ item.pImage height="100px", width="100px")
