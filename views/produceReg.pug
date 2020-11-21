@@ -42,7 +42,7 @@ title Produce Registration
         label(for="phone") Mode of Delivery
         select#mod.form-control(name="modeOfDelivery")
           option(value="Pickup") Pickup
-          option(value="Home Deliver") Home Delivery
+          option(value="Home Delivery") Home Delivery
     .form-row
       .form-group.col-md-6
         label(for="acts") Produce Type
@@ -53,6 +53,10 @@ title Produce Registration
         label(for="image") Upload Picture
         input.form-control-file#image(name="pImage", type="file")
       button.btn.btn-warning(style="width: 100%;", type="submit") Register
+    .form-row
+      .form-group.col-md-12
+        label(for="status") 
+        input.form-control#status(name="status", type="text" value="Pending"  hidden )
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")

@@ -5,7 +5,7 @@ link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
 link(rel="stylesheet", href="/css/table.css")
 link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
 script(src="https://kit.fontawesome.com/a076d05399.js")
-table.content-table
+.container-mt-3
     header.card-header(style="background-color: burlywood")
         h4.card-title Bookings and Orders   
     form.search( action='/bookings')
@@ -13,39 +13,41 @@ table.content-table
             .form-group.col-md-6
                 input.form-control(name='paymentMethod' placeholder="Enter your search term(payment method) ...")
             .form-group.col-md-2
-                    input.btn.btn-dark.btn-block(type="submit")                        
-    thead
-      tr
-        th FirstName
-        th Last Name
-        th Phone Number
-        th Email
-        th Total Amount(UGX)
-        th Delivery Address 
-        th Mode of Delivery
-        th Mode of Payment
-        th Status
-        
+                    input.btn.btn-dark.btn-block(type="submit")    
+    .table-responsive
+     table.content-table.table-bordered                    
+        thead
+            tr
+                th FirstName
+                th LastName
+                th PhoneNumber
+                th EmailAddress
+                th TotalAmount(UGX)
+                th DeliveryAddress 
+                th ModeofDelivery
+                th ModeofPayment
+                th Status
+                
 
-    tbody
-            if users.length
-            each user in users
-                tr
-                    td #{user.fname}
-                    td #{user.lname}
-                    td #{user.phone}
-                    td #{user.email}
-                    td #{user.amount}
-                    td #{user.deliveryAddress}
-                    td #{user.deliveryMethod}
-                    td #{user.paymentMethod}
-                    td
-                        form(method="post" action='/deleteufarmer')
-                            input(type="hidden", placeholder="", name="id", value=user._id)
-                            button.btn.btn-dark.btn-block(type="submit") Delivered
+            tbody
+                    if users.length
+                    each user in users
+                        tr
+                            td #{user.fname}
+                            td #{user.lname}
+                            td #{user.phone}
+                            td #{user.email}
+                            td #{user.amount}
+                            td #{user.deliveryAddress}
+                            td #{user.deliveryMethod}
+                            td #{user.paymentMethod}
+                            td
+                                form(method="post" action='/deleteufarmer')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-dark.btn-block(type="submit") Delivered
 
-            else
-                p No bookings yet :(  
+                    else
+                        p No bookings yet :(  
 footer(style="margin-top: 30px")
 .bottom
   center

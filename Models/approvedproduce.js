@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const produceSchema = new mongoose.Schema({
+const approvedProduceSchema = new mongoose.Schema({
 pname: {
     type: String,
     trim: true,
@@ -46,11 +46,16 @@ produceType: {
 pImage: {
   type: String,
 
+
  },
-status: {
+status:{
   type: String,
+},
+approvee:{
+    type:String,
+
 }
 
 });
 
-module.exports = mongoose.model('produceUpload', produceSchema);
+module.exports = mongoose.model('approvedProduct', approvedProduceSchema);

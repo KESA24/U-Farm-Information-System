@@ -88,8 +88,8 @@ router.get('/farmerOnes', async (req, res) => {
     try {
         let items = await farmerOneReg.find()  
 
-        if (req.query.name) {
-            items = await farmerOneReg.find({ name: req.query.name })
+        if (req.query.gender) {
+            items = await farmerOneReg.find({ gender: req.query.gender })
         }
         res.render('headfarmers', { title: 'Farmer Ones', users: items })
     } catch (err) {

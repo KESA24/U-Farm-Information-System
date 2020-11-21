@@ -6,10 +6,8 @@ const urbanFarmerReg = require("../Models/urbanFarmer")
 
 const produceReg = require("../Models/Produce")
 
-const multer = require('multer')
+const approvedProduce = require("../Models/approvedproduce")
 
-
-// FarmerOne Routes
 
 // Get dashboard
 router.get('/farmerOneDash', (req,res)=>{
@@ -81,68 +79,63 @@ router.post('/deleteufarmer', async(req,res)=>{
     }catch(err){
         res.status(400).send("Unable to delete item in the database");
     }})
-    
-// End of FarmerOne Routes
 
 
-
-//Urban Farmer Routes
-
-//farmer dashboard
-router.get('/ufarmerdash', (req,res) => {
-    res.render("ufarmerDash")
-}); 
-
-// Upload produce
-
-//Registration form
-router.get('/uproduce', (req,res) => {
-    res.render("produceReg")
-});
-
-//Upload Produce
-//Define storage for the images
-const storage = multer.diskStorage({
-    //destination for files
-     destination:function(request,file,callback){
-         callback(null,"./Public/uploads/");
-     },
- //Addback extension
-     filename:function(request,file,callback){
-     callback(null, Date.now()+ file.originalname);
-         
-     },
- })
- 
- //upload parameters for multer
- const upload = multer({
-     storage:storage,
-     limits:{
-         fieldSize: 1024*1024*3,
-     }
- })
-
-router.post('/uproduce',upload.single('pImage'), async(req,res)=>{
-    console.log(req.file);
+//Retrieve Produce from in the database
+router.get("/producelistFO", async(req,res) =>{
     try{
-        const registeredProduce = new produceReg(req.body);
-        registeredProduce.pImage = req.file.filename;
-        await registeredProduce.save(() => {
+        const retrieveproduce = await produceReg.find();
+
+        if (req.query.ward) {
+            retrieveproduce = await produceReg.find({ward: req.query.ward})
+        }
+
+        res.render("producelistFO" , {items:retrieveproduce})
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong.')
+        console.log(err)
+    }
+})
+//Approve Produce 
+
+router.get('/approveproduce/:id', async (req, res) => {
+    
+    try {
+        const approveproduce = await produceReg.findOne({ _id:req.params.id })
+         res.render('approveproduce', { item: approveproduce })
+    } catch (err) {
+        res.status(400).send("Unable to find item in the database");
+    }
+})
+
+router.post('/approveproduce', async (req, res) => {
+    
+    try{
+        const produceapproved = new approvedProduce(req.body);
+        await produceapproved.save(() => {
             console.log('save success')
             //  res.send('Thank you for your registration!')
-            res.redirect('/ufarmerDash')
+            res.redirect('/producelistFO')
         })
     }
     catch(err) {
         res.status(400).send('Sorry! Something went wrong.')
         console.log(err)
-    }   
-})
+    }     
 
-router.get("/produceImage", async(req,res) =>{
+
+})
+//Approved produce from database
+router.get("/approvedproducelist", async(req,res) =>{
     try{
-        const retrieveproduce = await produceReg.find();
-        res.render("pimage" , {items:retrieveproduce})
+        const foapprovedproduce = await approvedProduce.find();
+
+        if (req.query.ward) {
+            foapprovedproduce = await approvedProduce.find({ward: req.query.ward})
+        }
+
+        res.render("approvedlist" , {items:foapprovedproduce})
     }
     catch(err) {
         res.status(400).send('Sorry! Something went wrong.')
@@ -151,10 +144,21 @@ router.get("/produceImage", async(req,res) =>{
 })
 
 
+//Rejected Produce
+
+//Delete wrong registrations
+router.post('/deleteproduce', async(req,res)=>{
+    
+    try{
+        await produceReg.deleteOne({_id: req.body.id })
+        res.redirect('back')
+    }catch(err){
+        res.status(400).send("Unable to delete item in the database") 
+    }
 
 
+ 
+});
 
-
-
-
+    
 module.exports = router;

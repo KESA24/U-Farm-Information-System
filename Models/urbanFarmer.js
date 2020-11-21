@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const urbanFarmerSchema = new mongoose.Schema({
     fname: String,
     lname: String,
-    dob: Date,
-    dor: Date,
+    dob: String,
+    dor: String,
     nin:String,
     phone: Number,
     ward: String,

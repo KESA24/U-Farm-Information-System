@@ -1,0 +1,59 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="stylesheet", href="/css/table.css")
+link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
+script(src="https://kit.fontawesome.com/a076d05399.js")
+title UploadedProduce
+.container.mt-3
+    header.card-header(style="background-color: burlywood")
+        h4.card-title Approved Produce
+    form.search(action='/approvedproducelist')
+        .form-row
+            .form-group.col-md-6
+                input.form-control(name='ward' placeholder="Enter your search term(ward) ...")
+            .form-group.col-md-2
+                input.btn.btn-dark.btn-block(type="submit")  
+    .table-responsive
+        table.content-table.table-bordered
+
+            thead
+                tr
+                th ProductName
+                th WardName
+                th DateOfRegistration
+                th UnitPrice(UGX)
+                th ProductQuantity
+                th Directions
+                th ModeOfPayment
+                th ModeOfDelivery
+                th ProduceType
+                th ApprovedBy
+                th ProduceImage
+                th Status
+
+            tbody
+                if items.length
+                each item in items
+                    tr
+                        td #{item.pname}
+                        td #{item.ward}
+                        td #{item.dateOfRegistration}
+                        td #{item.price}
+                        td #{item.pquantity}
+                        td #{item.directions}
+                        td #{item.modeOfPayment}
+                        td #{item.modeOfDelivery}
+                        td #{item.produceType}
+                        td #{item.approvee}
+                        td 
+                            img(src="/uploads/"+ item.pImage height="100px", width="100px")
+                        td #{item.status}
+                else
+                    p No registrations yet :(
+    footer(style="margin-top: 20px")
+    .bottom
+    center
+        span.credit Created By the Agritect |
+        span.far.fa-copyright
+        |2020 All rights reserved.
