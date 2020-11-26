@@ -2,16 +2,15 @@
 *{
   margin: 0;
   padding: 0;
-  margin-left: 5px;
-  margin-right: 5px;
+  /* margin-left: 5px;
+  margin-right: 5px; */
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+ /* header{
+  /* background-color: burlywood; */
+  /* margin-top: 20px; */
 
-header{
-  background-color: burlywood;
-  margin-top: 20px;
-}
 
 
 h4{

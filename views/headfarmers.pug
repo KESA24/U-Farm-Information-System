@@ -1,69 +1,49 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="stylesheet", href="/css/table.css")
-link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-script(src="https://kit.fontawesome.com/a076d05399.js")
-title FarmerOnes
-.container.mt-3
-    header.card-header(style="background-color: burlywood")
-        h4.card-title Registered Farmer Ones   
-    form.search( action='/farmerOnes')
-        .form-row
-            .form-group.col-md-6
-                input.form-control(name='gender' placeholder="Enter your search term(gender) ...")
-            .form-group.col-md-2
-                input.btn.btn-dark.btn-block(type="submit")  
-    .table-responsive
-        table.content-table.table-bordered
-
-            thead
-                tr
-                th FName
-                th LName
-                th D.Birth
-                th D.Registration
-                th NIN
-                th Tel
-                th FONumber
-                th ResType
-                th Ward
-                th Activities
-                th HomeLocation
-                th PeriodofStay
-                th Gender
-                th Delete
-                //- th Edit
-            tbody
-                if users.length
-                each user in users
+extends tablelayout
+block content
+    .container.mt-3
+        header
+            h1.h2 Registered Farmer Ones  
+            hr
+        .table-responsive
+            table.content-table.table-bordered
+                thead
                     tr
-                        td #{user.fname}
-                        td #{user.lname}
-                        td #{user.dob}
-                        td #{user.dor}
-                        td #{user.nin}
-                        td #{user.phone}
-                        td #{user.foid}
-                        td #{user.restype}
-                        td #{user.ward}
-                        td #{user.acts}
-                        td #{user.home}
-                        td #{user.stayperiod}
-                        td #{user.gender}
-                        //- td
-                        //-     form(method="post" action='/delete')
-                        //-         input(type="hidden", placeholder="", name="id", value=user._id)
-                        //-         button.btn.btn-dark.btn-block(type="submit") Delete
-                        td
-                            form(method="GET" action= '/update/'+user._id)
-                                input(type="hidden", placeholder="", name="id", value=user._id)
-                                button.btn.btn-dark.btn-block(type="submit") Update
-                else
-                    p No registrations yet :(
-    footer(style="margin-top: 20px")
-    .bottom
-    center
-        span.credit Created By the Agritect |
-        span.far.fa-copyright
-        |2020 All rights reserved.
+                    th FirstName
+                    th LastName
+                    th DateOfBirth
+                    th DateOfRegistration
+                    th National-Id-Num
+                    th PhoneNumber
+                    th FONumber
+                    th ResidenceType
+                    th WardName
+                    th Activities
+                    th HomeLocation
+                    th PeriodofStay
+                    th Gender
+                    th UpdateDetails
+                tbody
+                    if users.length
+                    each user in users
+                        tr
+                            td #{user.fname}
+                            td #{user.lname}
+                            td #{user.dob}
+                            td #{user.dor}
+                            td #{user.nin}
+                            td #{user.phone}
+                            td #{user.foid}
+                            td #{user.restype}
+                            td #{user.ward}
+                            td #{user.acts}
+                            td #{user.home}
+                            td #{user.stayperiod}
+                            td #{user.gender}
+                           
+                            td
+                                form(method="GET" action= '/update/'+user._id)
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-sm.btn-dark.btn-block(type="submit") Update
+                    else
+                        p No registrations yet :(
+

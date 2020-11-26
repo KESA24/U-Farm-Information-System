@@ -16,10 +16,10 @@ title FarmerOne Registration
     .form-row
       .form-group.col-md-6
         label(for="dob") Date Of Birth
-        input.form-control#dob(name="dob", type="date" )
+        input.form-control#dob(name="dob", type="text" required )
       .form-group.col-md-6
         label(for="dor") Date of Registration
-        input.form-control#dor(name="dor", type="date" )
+        input.form-control#dor(name="dor", type="text" required)
     .form-row
       .form-group.col-md-6
         label(for="nin") National Identification Number
@@ -30,28 +30,30 @@ title FarmerOne Registration
     .form-row
       .form-group.col-md-6
         label(for="ufid") UniqueID
-        input.form-control#foid(name="foid", type="string", placeholder="AA789")
+        input.form-control#foid(name="foid", type="text", placeholder="AA789")
       .form-group.col-md-6
         label(for="ufid") Residence Type
-        input.form-control#restype(name="restype", type="text", placeholder="Apartment")
+        input.form-control#restype(name="restype", type="text", placeholder="Residence Type")
     .form-row
       .form-group.col-md-6
         label(for="ward") Ward
-        select#ward.form-control(name="ward" type="text")
+        select#ward.form-control(name="ward" type="text" placeholder="Select Ward")
+          option(value="selectward") Select Ward
           option(value="Ward 1") Ward 1
           option(value="Ward 2") Ward 2
           option(value="Ward 3") Ward 3
           option(value="Ward 4") Ward 4
       .form-group.col-md-6
         label(for="acts") Farming Activities
-        select#acts.form-control(name="acts" type="text")
+        select#acts.form-control(name="acts" type="text" placeholder="Select Activities")
+            option(value="Select Farming Activities") Select Farming Activities
             option(value="Horticulture") Horticulture
             option(value="Poultry") Poultry
             option(value="Dairy") Dairy
     .form-row
       .form-group.col-md-6
         label(for="home") Home Location
-        input.form-control#home(name="home", type="text", placeholder="Masajja A")
+        input.form-control#home(name="home", type="text", placeholder="MasajjaA")
       .form-group.col-md-6
         label(for="stayperiod") Stay Period(Years)
         input.form-control#stayperiod(name="stayperiod", type="number", placeholder="13" )
@@ -67,8 +69,9 @@ title FarmerOne Registration
             input.form-check-input#gender2(type="radio", name="gender", value="Male")
             label.form-check-label(for="gender2"). 
             |Male         
-    button.btn.btn-warning(style="width: 60%; margin-left: 100px;", type="submit" onsubmit="foRegistration()") Register
-script(src="/js/validateFO.js")
+    button.btn.btn-warning#bsubmit(style="width: 60%; margin-left: 100px;", type="submit" onsubmit="foRegistration()") Register
+
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")
+script(src="/js/validateFO.js")

@@ -5,58 +5,62 @@ block content
     form(method="post" action="/update?id="+user._id)
         table.table
             thead.thead-dark
-                tr
-                    th First Name
-                    td 
-                        input.form-control(value = user.fname name ="fname")
-                tr
-                    th Last Name
-                    td 
-                        input.form-control(value = user.lname name ="lname") 
-                tr
-                    th Date Of Birth
-                    td 
-                        input.form-control(value = user.dob name ="dob")
-                tr
-                    th Date of Registration
-                    td 
-                        input.form-control(value = user.dor name ="dor")
-                tr
-                    th NIN
-                    td 
-                        input.form-control(value = user.nin name ="nin")
+                //- tr
+                //-     th First Name
+                //-     td 
+                //-         input.form-control(value = user.fname name ="fname")
+                //- tr
+                //-     th Last Name
+                //-     td 
+                //-         input.form-control(value = user.lname name ="lname") 
+                //- tr
+                //-     th Date Of Birth
+                //-     td 
+                //-         input.form-control(value = user.dob name ="dob")
+                //- tr
+                //-     th Date of Registration
+                //-     td 
+                //-         input.form-control(value = user.dor name ="dor")
+                //- tr
+                //-     th NIN
+                //-     td 
+                //-         input.form-control(value = user.nin name ="nin")
                 tr
                     th Phonenumber
                     td 
                         input.form-control(value = user.phone name ="phone")
-                tr
-                    th FO Number
-                    td 
-                        input.form-control(value = user.foid name ="foid")
-                tr
-                    th Residence Type
-                    td 
-                        input.form-control(value = user.restype name ="restype")
-                tr
-                    th Ward
-                    td 
-                        input.form-control(value = user.ward name ="ward")
+                //- tr
+                //-     th FO Number
+                //-     td 
+                //-         input.form-control(value = user.foid name ="foid")
+                //- tr
+                //-     th Residence Type
+                //-     td 
+                //-         input.form-control(value = user.restype name ="restype")
+                //- tr
+                //-     th Ward
+                //-     td 
+                //-         input.form-control(value = user.ward name ="ward")
                 tr
                     th Activities
                     td 
-                        input.form-control(value = user.acts name ="acts")
-                tr
-                    th Home Location
-                    td 
-                        input.form-control(value = user.home name ="home")                    
-                tr
-                    th Period of Stay
-                    td 
-                        input.form-control(value = user.stayperiod name ="stayperiod")
-                tr
-                    th Gender
-                    td 
-                        input.form-control(value = user.gender name ="gender")
+                        select#acts.form-control(name="acts"  value = user.acts type="text")
+                            option(value="Select Farming Activities") Update Farming Activities
+                            option(value="Horticulture") Horticulture
+                            option(value="Poultry") Poultry
+                            option(value="Dairy") Dairy 
+                //- tr
+                //-     th Home Location
+                //-     td 
+                //-         input.form-control(value = user.home name ="home")                    
+                //- tr
+                //-     th Period of Stay
+                //-     td 
+                //-         input.form-control(value = user.stayperiod name ="stayperiod")
+                //- tr
+                //-     th Gender
+                //-     td 
+                //-         input.form-control(value = user.gender name ="gender")
                 
                             
                 tr 
