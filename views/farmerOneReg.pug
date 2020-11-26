@@ -5,7 +5,7 @@ link(rel="stylesheet", href="/css/f1registration.css")
 title FarmerOne Registration
 .container 
   h3 FarmerOne Registration
-  form(method="POST" action="/farmerOne")
+  form(method="POST" action="/farmerOne")#regForm
     .form-row
       .form-group.col-md-6
         label(for="fname") First Name
@@ -54,7 +54,7 @@ title FarmerOne Registration
         input.form-control#home(name="home", type="text", placeholder="Masajja A")
       .form-group.col-md-6
         label(for="stayperiod") Stay Period(Years)
-        input.form-control#foid(name="stayperiod", type="number", placeholder="13" )
+        input.form-control#stayperiod(name="stayperiod", type="number", placeholder="13" )
     fieldset.form-group.col-md-12
       .row
         legend.col-form-label.col-sm-2.pt-0 Gender
@@ -67,7 +67,8 @@ title FarmerOne Registration
             input.form-check-input#gender2(type="radio", name="gender", value="Male")
             label.form-check-label(for="gender2"). 
             |Male         
-    button.btn.btn-warning(style="width: 60%; margin-left: 100px;", type="submit" ) Register
+    button.btn.btn-warning(style="width: 60%; margin-left: 100px;", type="submit" onsubmit="foRegistration()") Register
+script(src="/js/validateFO.js")
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")
