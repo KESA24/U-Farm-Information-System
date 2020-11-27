@@ -1,59 +1,100 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="stylesheet", href="/css/table.css")
-link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-script(src="https://kit.fontawesome.com/a076d05399.js")
-title UploadedProduce
-.container.mt-3
-    header.card-header(style="background-color: burlywood")
-        h4.card-title Approved Produce
-    form.search(action='/approvedproducelist')
-        .form-row
-            .form-group.col-md-6
-                input.form-control(name='ward' placeholder="Enter your search term(ward) ...")
-            .form-group.col-md-2
-                input.btn.btn-dark.btn-block(type="submit")  
-    .table-responsive
-        table.content-table.table-bordered
+//- meta(charset="UTF-8")
+//- meta(name="viewport", content="width=device-width,initial-scale=1")
+//- link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+//- link(rel="stylesheet", href="/css/table.css")
+//- link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
+//- script(src="https://kit.fontawesome.com/a076d05399.js")
+//- title UploadedProduce
+extends tablelayout
+block content
+    title UploadedProduce
+    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .nav_bar
+        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
+        h5(style="margin-left: 25px; margin-top: 20px;") Farmer One
+        i.fa.fa-bars.nav_btn
+      .sidebar-sticky.pt-2
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarmer")
+              span(data-feather="file")
+              | Register UrbanFarmer
 
-            thead
-                tr
-                th ProductName
-                th WardName
-                th DateOfRegistration
-                th UnitPrice(UGX)
-                th ProductQuantity
-                th Directions
-                th ModeOfPayment
-                th ModeOfDelivery
-                th ProduceType
-                th ApprovedBy
-                th ProduceImage
-                th Status
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/producelistFO")
+              span(data-feather="file")
+              |Uploaded Produce
+        
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/approvedproducelist")
+              span(data-feather="users")
+              |Approved Produce 
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="users")
+              |Pending Produce
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/bookings")
+              span(data-feather="users")
+              | Bookings and Orders
 
-            tbody
-                if items.length
-                each item in items
-                    tr
-                        td #{item.pname}
-                        td #{item.ward}
-                        td #{item.dateOfRegistration}
-                        td #{item.price}
-                        td #{item.pquantity}
-                        td #{item.directions}
-                        td #{item.modeOfPayment}
-                        td #{item.modeOfDelivery}
-                        td #{item.produceType}
-                        td #{item.approvee}
-                        td 
-                            img(src="/uploads/"+ item.pImage height="100px", width="100px")
-                        td #{item.status}
-                else
-                    p No registrations yet :(
-    footer(style="margin-top: 20px")
-    .bottom
-    center
-        span.credit Created By the Agritect |
-        span.far.fa-copyright
-        |2020 All rights reserved.
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarm")
+              span(data-feather="shopping-cart")
+              | Ufarm OnlineMarket
+
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="bar-chart-2")
+              | Reports
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
+        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            .container.mt-3
+                header
+                    h1.h2 Approved Produce
+                    hr
+                    //- form.search(action='/approvedproducelist')
+                    //-     .form-row
+                    //-         .form-group.col-md-6
+                    //-             input.form-control(name='ward' placeholder="Enter your search term(ward) ...")
+                    //-         .form-group.col-md-2
+                    //-             input.btn.btn-dark.btn-block(type="submit")  
+
+                .table-responsive
+                    table.content-table.table-bordered
+
+                        thead
+                            tr
+                            th ProductName
+                            th WardName
+                            th DateOfRegistration
+                            th UnitPrice(UGX)
+                            th ProductQuantity
+                            th Directions
+                            th ModeOfPayment
+                            th ModeOfDelivery
+                            th ProduceType
+                            th ApprovedBy
+                            th ProduceImage
+                            th Status
+
+                        tbody
+                            if items.length
+                            each item in items
+                                tr
+                                    td #{item.pname}
+                                    td #{item.ward}
+                                    td #{item.dateOfRegistration}
+                                    td #{item.price}
+                                    td #{item.pquantity}
+                                    td #{item.directions}
+                                    td #{item.modeOfPayment}
+                                    td #{item.modeOfDelivery}
+                                    td #{item.produceType}
+                                    td #{item.approvee}
+                                    td 
+                                        img(src="/uploads/"+ item.pImage height="100px", width="100px")
+                                    td #{item.status}
+                            else
+                                p No registrations yet :(
+

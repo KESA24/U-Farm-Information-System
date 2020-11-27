@@ -1,7 +1,7 @@
 
 // FarmerOne Registration
 
-    const registerFO = document.getElementById("bsubmit");
+    const registerFO = document.getElementById("regForm");
     const firstName = document.getElementById("fname");
     const lastName = document.getElementById("lname");
     // const dateOfBirth = document.getElementById("dob");
@@ -25,21 +25,23 @@
     
 
     let nameStandard = /^([A-Za-z]{5,15})+$/;
-        if (firstName.value.match(nameStandard)){
-            firstName.style.border = "2px solid green";
-        }
-        else {
-            alert("Please provide a valid name");
+        if (!firstName.value.match(nameStandard)){
+            alert("provide a valid name")
             firstName.style.border = "2px solid red"
-        }
+            // firstName.style.border = "2px solid green";
 
-        if (lastName.value.match(nameStandard)){
-            lastName.style.border = "2px solid green";
+            return false;
         }
-        else {
+        
+
+        if (!lastName.value.match(nameStandard)){
             alert("Please provide a valid name");
             lastName.style.border = "2px solid red"
+
+            return false;
+            // lastName.style.border = "2px solid green";
         }
+        
     
     // let dateStandard = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
     //     if (dateOfBirth.value.match(dateStandard)){
@@ -59,74 +61,74 @@
     //     }
 
     let ninalphanumeric = /^([0-9a-zA-Z]{13})+$/
-        if (nationalIdNumber.value.match(ninalphanumeric)){
-            nationalIdNumber.style.border = "2px solid green";
-        }
-        else {
+        if (!nationalIdNumber.value.match(ninalphanumeric)){
             alert("Please provide a valid nin");
             nationalIdNumber.style.border = "2px solid red"
+
+            return false;
         }
+       
 
     let alphanumeric = /^[0-9a-zA-Z]+$/
-        if (uniqueID.value.match(alphanumeric)){
-            uniqueID.style.border = "2px solid green";
-        }
-        else {
+        if (!uniqueID.value.match(alphanumeric)){
             alert("Please provide a valid name");
             uniqueID.style.border = "2px solid red"
+
+            return false;
         }
+        
     
     let phonenumber = /^[0-9]+$/
         
-        if (phoneNumber.value.match(phonenumber)){
-            phoneNumber.style.border = "2px solid green";
-        }
-        else {
+        if (!phoneNumber.value.match(phonenumber)){
             alert("Please provide a valid phonenumber");
             phoneNumber.style.border = "2px solid red"
+            
+            return false;
         }
-    
     let text = /^[A-Za-z]+$/
-        if (restype.value.match(text)){
-            restype.style.border = "2px solid green";
-        }
-        else {
+        if (!restype.value.match(text)){
             alert("Please provide a valid residence Type name");
             restype.style.border = "2px solid red"
+
+            return false;
         }
+        
         
         if (ward.value =='selectward'){
             alert("Please provide a valid  wardname from the selection");
-            ward.style.border = "2px solid red"   
+            ward.style.border = "2px solid red" 
+            
+            return false;
         }
-        else {  
-            ward.style.border = "2px solid green";   
-        }
+        
 
         if (farmActs.value == "Select Farming Activities") {
             alert("Please provide a valid farming activities");
             farmActs.style.border = "2px solid red"   
-        }
-        else {
-            farmActs.style.border = "2px solid green";
-        }
 
-        if (homeLocation.value.match(text)){
-            homeLocation.style.border = "2px solid green";
+            return false;
         }
-        else {
+        
+
+        if (!homeLocation.value.match(text)){
             alert("Please provide a valid home location");
             homeLocation.style.border = "2px solid red"
+
+            return false;
         }
+        
     
     let number = /^[0-9]+$/
-        if (stayPeriod.value.match(number)){
-            stayPeriod.style.border = "2px solid green";
-        }
-        else {
+        if (!stayPeriod.value.match(number)){
             alert("Please provide valid number of years stayed");
-            stayPeriod.style.border = "2px solid red"
+            stayPeriod.style.border = "2px solid red";
+
+            return false;
         }
+        
 
-
+    else{
+        return true;
+    }
 }

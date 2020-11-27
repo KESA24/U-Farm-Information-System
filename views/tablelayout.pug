@@ -4,7 +4,7 @@ title Ufarm
 link(href="/css/bootstrap_css/bootstrap.min.css", rel="stylesheet")
 link(href="/css/dashboard.css", rel="stylesheet")
 link(rel="stylesheet", href="/css/table.css")
-nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
+nav.navbar.navbar-dark.sticky-top.bg-success.flex-md-nowrap.p-0.shadow
   a.navbar-brand.col-md-3.col-lg-2.mr-0.px-3(href="#", style="font-size: 28px; font-weight:bolder; margin-left:25px;") Ufarm
   button.navbar-toggler.position-absolute.d-md-none.collapsed(type="button", data-toggle="collapse", data-target="#sidebarMenu", aria-controls="sidebarMenu", aria-expanded="false", aria-label="Toggle navigation")
     span.navbar-toggler-icon
@@ -12,41 +12,11 @@ nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0.shadow
   ul.navbar-nav.px-3
     li.nav-item.text-nowrap
         form(method="POST" action="/logout")
-          button.btn.btn-dark(style="margin-top: 0px") Logout
+          button.btn.btn-dark.btn-sm(style="margin-top: 0px") Logout
 .container-fluid
   .row
-    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
-      .nav_bar
-        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
-        h5(style="margin-left: 25px; margin-top: 20px;") AgricOfficer
-        i.fa.fa-bars.nav_btn
-      .sidebar-sticky.pt-2
-        ul.nav.flex-column
-          li.nav-item
-            a.nav-link(href="http://localhost:3000/farmerOne")
-              span(data-feather="file")
-              | Register Farmer One
+    block content
 
-          li.nav-item
-            a.nav-link(href="http://localhost:3000/farmerOnes")
-              span(data-feather="users")
-              | View FarmerOnes
-
-          li.nav-item
-            a.nav-link(href="#")
-              span(data-feather="shopping-cart")
-              | Ufarm OnlineMarket
-
-          li.nav-item
-            a.nav-link(href="#")
-              span(data-feather="bar-chart-2")
-              | Reports
-
-
-    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
-      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
-        block content
-        //- h1.h2 Welcome to Ufarm
 footer(style="")
   .bottom
     center

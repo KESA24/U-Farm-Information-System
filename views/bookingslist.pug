@@ -1,60 +1,89 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-title Bookings and orders
-link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="stylesheet", href="/css/table.css")
-link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-script(src="https://kit.fontawesome.com/a076d05399.js")
-.container-mt-3
-    header.card-header(style="background-color: burlywood")
-        h4.card-title Bookings and Orders   
-    form.search( action='/bookings')
-        .form-row
-            .form-group.col-md-6
-                input.form-control(name='paymentMethod' placeholder="Enter your search term(payment method) ...")
-            .form-group.col-md-2
-                    input.btn.btn-dark.btn-block(type="submit")    
-    .table-responsive
-     table.content-table.table-bordered                    
-        thead
-            tr
-                th FirstName
-                th LastName
-                th PhoneNumber
-                th EmailAddress
-                th TotalAmount(UGX)
-                th DeliveryAddress 
-                th ModeofDelivery
-                th ModeofPayment
-                th Status
-                
+extends tablelayout
+block content
+    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .nav_bar
+        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
+        h5(style="margin-left: 25px; margin-top: 20px;") Farmer One
+        i.fa.fa-bars.nav_btn
+      .sidebar-sticky.pt-2
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarmer")
+              span(data-feather="file")
+              | Register UrbanFarmer
 
-            tbody
-                    if users.length
-                    each user in users
-                        tr
-                            td #{user.fname}
-                            td #{user.lname}
-                            td #{user.phone}
-                            td #{user.email}
-                            td #{user.amount}
-                            td #{user.deliveryAddress}
-                            td #{user.deliveryMethod}
-                            td #{user.paymentMethod}
-                            td
-                                form(method="post" action='/deleteufarmer')
-                                    input(type="hidden", placeholder="", name="id", value=user._id)
-                                    button.btn.btn-dark.btn-block(type="submit") Delivered
-
-                    else
-                        p No bookings yet :(  
-footer(style="margin-top: 30px")
-.bottom
-  center
-    span.credit Created By the Agritect |
-    span.far.fa-copyright
-    |2020 All rights reserved.    
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/producelistFO")
+              span(data-feather="file")
+              |Uploaded Produce
         
-script(src="/js/jquery-3.5.1.slim.min.js")
-script(src="/js/popper.min.js")
-script(src="/js/bootstrap_js/bootstrap.js")
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/approvedproducelist")
+              span(data-feather="users")
+              |Approved Produce 
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="users")
+              |Pending Produce
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/bookings")
+              span(data-feather="users")
+              | Bookings and Orders
+
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarm")
+              span(data-feather="shopping-cart")
+              | Ufarm OnlineMarket
+
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="bar-chart-2")
+              | Reports
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
+        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            .container-mt-3
+                header
+                    h1.h2 Bookings and Orders   
+                    
+                //- form.search( action='/bookings')
+                //-     .form-row
+                //-         .form-group.col-md-6
+                //-             input.form-control(name='paymentMethod' placeholder="Enter your search term(payment method) ...")
+                //-         .form-group.col-md-2
+                //-                 input.btn.btn-dark.btn-block(type="submit") 
+
+       
+        .table-responsive
+            table.content-table.table-bordered                    
+                thead
+                    tr
+                        th FirstName
+                        th LastName
+                        th PhoneNumber
+                        th EmailAddress
+                        th TotalAmount(UGX)
+                        th DeliveryAddress 
+                        th ModeofDelivery
+                        th ModeofPayment
+                        th Status
+                        
+
+                    tbody
+                            if users.length
+                            each user in users
+                                tr
+                                    td #{user.fname}
+                                    td #{user.lname}
+                                    td #{user.phone}
+                                    td #{user.email}
+                                    td #{user.amount}
+                                    td #{user.deliveryAddress}
+                                    td #{user.deliveryMethod}
+                                    td #{user.paymentMethod}
+                                    td
+                                        form(method="post" action='/deleteufarmer')
+                                            input(type="hidden", placeholder="", name="id", value=user._id)
+                                            button.btn.btn-success.btn-block.btn-sm(type="submit") Delivered
+
+                            else
+                                p No bookings yet :(  

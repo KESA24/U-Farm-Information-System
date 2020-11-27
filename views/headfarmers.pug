@@ -1,11 +1,39 @@
 extends tablelayout
 block content
-    .container.mt-3
-        header
-            h1.h2 Registered Farmer Ones  
-            hr
+    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .nav_bar
+        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
+        h5(style="margin-left: 25px; margin-top: 20px;") AgricOfficer
+        i.fa.fa-bars.nav_btn
+      .sidebar-sticky.pt-2
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/farmerOne")
+              span(data-feather="file")
+              | Register Farmer One
+
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/farmerOnes")
+              span(data-feather="users")
+              | View FarmerOnes
+
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarm")
+              span(data-feather="shopping-cart")
+              | Ufarm OnlineMarket
+
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="bar-chart-2")
+              | Reports
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
+        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            .container.mt-3
+                header
+                    h1.h2 Registered FarmerOnes
+    
         .table-responsive
-            table.content-table.table-bordered
+            table.content-table.table-bordered.bg-light
                 thead
                     tr
                     th FirstName

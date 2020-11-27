@@ -5,39 +5,39 @@ link(rel="stylesheet", href="/css/f1registration.css")
 title FarmerOne Registration
 .container 
   h3 FarmerOne Registration
-  form(method="POST" action="/farmerOne")#regForm
+  form(method="POST" action="/farmerOne" onsubmit='return foRegistratio()')#regForm
     .form-row
       .form-group.col-md-6
         label(for="fname") First Name
-        input.form-control#fname(name="fname", type="text" placeholder="Allan")
+        input.form-control#fname(name="fname", type="text" placeholder="Allan" required)
       .form-group.col-md-6
         label(for="lname") Last Name
-        input.form-control#lname(name="lname", type="text" placeholder="Assimwe")
+        input.form-control#lname(name="lname", type="text" placeholder="Assimwe" required)
     .form-row
       .form-group.col-md-6
         label(for="dob") Date Of Birth
-        input.form-control#dob(name="dob", type="text" required )
+        input.form-control#dob(name="dob", type="date" required )
       .form-group.col-md-6
         label(for="dor") Date of Registration
-        input.form-control#dor(name="dor", type="text" required)
+        input.form-control#dor(name="dor", type="date" required)
     .form-row
       .form-group.col-md-6
         label(for="nin") National Identification Number
-        input.form-control#nin(name="nin", type="text" placeholder="CF5R9IK097890")
+        input.form-control#nin(name="nin", type="text" placeholder="CF5R9IK097890" required)
       .form-group.col-md-6
         label(for="phone") Contact
-        input.form-control#phone(name="phone", type="number" placeholder="0786145913")
+        input.form-control#phone(name="phone", type="number" placeholder="0786145913" required)
     .form-row
       .form-group.col-md-6
         label(for="ufid") UniqueID
-        input.form-control#foid(name="foid", type="text", placeholder="AA789")
+        input.form-control#foid(name="foid", type="text", placeholder="AA789" required)
       .form-group.col-md-6
         label(for="ufid") Residence Type
-        input.form-control#restype(name="restype", type="text", placeholder="Residence Type")
+        input.form-control#restype(name="restype", type="text", placeholder="Residence Type" required)
     .form-row
       .form-group.col-md-6
         label(for="ward") Ward
-        select#ward.form-control(name="ward" type="text" placeholder="Select Ward")
+        select#ward.form-control(name="ward" type="text" placeholder="Select Ward" required)
           option(value="selectward") Select Ward
           option(value="Ward 1") Ward 1
           option(value="Ward 2") Ward 2
@@ -45,7 +45,7 @@ title FarmerOne Registration
           option(value="Ward 4") Ward 4
       .form-group.col-md-6
         label(for="acts") Farming Activities
-        select#acts.form-control(name="acts" type="text" placeholder="Select Activities")
+        select#acts.form-control(name="acts" type="text" placeholder="Select Activities" required)
             option(value="Select Farming Activities") Select Farming Activities
             option(value="Horticulture") Horticulture
             option(value="Poultry") Poultry
@@ -53,10 +53,10 @@ title FarmerOne Registration
     .form-row
       .form-group.col-md-6
         label(for="home") Home Location
-        input.form-control#home(name="home", type="text", placeholder="MasajjaA")
+        input.form-control#home(name="home", type="text", placeholder="MasajjaA" required)
       .form-group.col-md-6
         label(for="stayperiod") Stay Period(Years)
-        input.form-control#stayperiod(name="stayperiod", type="number", placeholder="13" )
+        input.form-control#stayperiod(name="stayperiod", type="number", placeholder="13" required )
     fieldset.form-group.col-md-12
       .row
         legend.col-form-label.col-sm-2.pt-0 Gender
@@ -69,9 +69,11 @@ title FarmerOne Registration
             input.form-check-input#gender2(type="radio", name="gender", value="Male")
             label.form-check-label(for="gender2"). 
             |Male         
-    button.btn.btn-warning#bsubmit(style="width: 60%; margin-left: 100px;", type="submit" onsubmit="foRegistration()") Register
+    button.btn.btn-warning#bsubmit(style="width: 60%; margin-left: 100px;", type="submit") Register
+
 
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")
 script(src="/js/validateFO.js")
+
