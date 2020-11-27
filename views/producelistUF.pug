@@ -1,66 +1,75 @@
-meta(charset="UTF-8")
-meta(name="viewport", content="width=device-width,initial-scale=1")
-link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-link(rel="stylesheet", href="/css/table.css")
-link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-script(src="https://kit.fontawesome.com/a076d05399.js")
-title UploadedProduce
-.container.mt-3
-    header.card-header(style="background-color: burlywood")
-        h4.card-title Uploaded Produce
-    form.search(action='/producelist')
-        .form-row
-            .form-group.col-md-6
-                input.form-control(name='ward' placeholder="Enter your search term(ward) ...")
-            .form-group.col-md-2
-                input.btn.btn-dark.btn-block(type="submit")  
-    .table-responsive
-        table.content-table.table-bordered
+extends tablelayout
+block content
+    title UploadedProduce
+    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .nav_bar
+        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
+        h5(style="margin-left: 25px; margin-top: 20px;") Urban Farmer
+        i.fa.fa-bars.nav_btn
+      .sidebar-sticky.pt-2
+        ul.nav.flex-column
+          li.nav-item  
+            a.nav-link(href="http://localhost:3000/uproduce")
+              span(data-feather="file")
+              |Register Produce 
 
-            thead
-                tr
-                th ProductName
-                th WardName
-                th DateOfRegistration
-                th UnitPrice(UGX)
-                th ProductQuantity
-                th Directions
-                th ModeOfPayment
-                th ModeOfDelivery
-                th ProduceType
-                th ProduceImage
-                th Status
-                th Delete
-                th Edit
-            tbody
-                if items.length
-                each item in items
+          li.nav-item  
+            a.nav-link(href="http://localhost:3000/producelist")
+              span(data-feather="file")
+              |Uploaded Produce
+
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarm")
+              span(data-feather="shopping-cart")
+              | Ufarm OnlineMarket
+
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
+        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            .container.mt-3
+                header
+                    h1.h2 Uploaded Produce
+                    
+        .table-responsive
+            table.content-table.table-bordered
+
+                thead
                     tr
-                        td #{item.pname}
-                        td #{item.ward}
-                        td #{item.dateOfRegistration}
-                        td #{item.price}
-                        td #{item.pquantity}
-                        td #{item.directions}
-                        td #{item.modeOfPayment}
-                        td #{item.modeOfDelivery}
-                        td #{item.produceType}
-                        td 
-                            img(src="/uploads/"+ item.pImage height="100px", width="100px")
-                        td #{item.status}
-                        td
-                            form(method="post" action='/deleteproduce')
-                                input(type="hidden", placeholder="", name="id", value=item._id)
-                                button.btn.btn-dark.btn-block(type="submit") Delete
-                        td
-                            form(method="GET" action= '/updateproduce/'+item._id)
-                                input(type="hidden", placeholder="", name="id", value=item._id)
-                                button.btn.btn-dark.btn-block(type="submit") Update
-                else
-                    p No registrations yet :(
-    footer(style="margin-top: 20px")
-    .bottom
-    center
-        span.credit Created By the Agritect |
-        span.far.fa-copyright
-        |2020 All rights reserved.
+                    th ProductName
+                    //- th WardName
+                    //- th DateOfRegistration
+                    th UnitPrice(UGX)
+                    th ProductQuantity
+                    //- th Directions
+                    th ModeOfPayment
+                    //- th ModeOfDelivery
+                    //- th ProduceType
+                    th ProduceImage
+                    th ProduceStatus
+                    th Delete
+                    th Update
+                tbody
+                    if items.length
+                    each item in items
+                        tr
+                            td #{item.pname}
+                            //- td #{item.ward}
+                            //- td #{item.dateOfRegistration}
+                            td #{item.price}
+                            td #{item.pquantity}
+                            //- td #{item.directions}
+                            td #{item.modeOfPayment}
+                            //- td #{item.modeOfDelivery}
+                            //- td #{item.produceType}
+                            td 
+                                img(src="/uploads/"+ item.pImage height="100px", width="100px")
+                            td #{item.status}
+                            td
+                                form(method="post" action='/deleteproduce')
+                                    input(type="hidden", placeholder="", name="id", value=item._id)
+                                    button.btn.btn-success.btn-sm(type="submit") Delete
+                            td
+                                form(method="GET" action= '/updateproduce/'+item._id)
+                                    input(type="hidden", placeholder="", name="id", value=item._id)
+                                    button.btn.btn-success.btn-sm(type="submit") Update
+                    else
+                        p No registrations yet :(

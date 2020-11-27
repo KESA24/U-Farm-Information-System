@@ -39,17 +39,17 @@ router.post('/AOSignup', async(req,res)=>{
 //Login route
 router.post('/login',passport.authenticate('local'), (req,res) =>{
     req.session.user = req.user;
-    res.redirect('/agricdash')
+    res.redirect('/farmerOnes')
 })
 //Views Dashboard
-router.get('/agricdash', (req,res) => {
-     if(req.session.user){
-    res.render("agricOfficerDash")
-} else{
-    console.log("Can't find session")
-    res.redirect("/masajja")
-}
-});
+// router.get('/agricdash', (req,res) => {
+//      if(req.session.user){
+//     res.render("headfarmers")
+// } else{
+//     console.log("Can't find session")
+//     res.redirect("/masajja")
+// }
+// });
 //Registers FarmerOne
 router.get('/farmerOne', (req,res) => {
     if(req.session.user){
@@ -67,7 +67,7 @@ router.get('/farmerOne', (req,res) => {
              const registerFarmerOne = new farmerOneReg(req.body);
              await registerFarmerOne.save(()=>{
                  console.log("save success")
-                 res.redirect('/agricdash')
+                 res.redirect('/farmerOnes')
              })
          }
          catch(err) {

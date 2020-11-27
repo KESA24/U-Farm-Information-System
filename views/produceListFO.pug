@@ -1,10 +1,3 @@
-
-//- meta(charset="UTF-8")
-//- meta(name="viewport", content="width=device-width,initial-scale=1")
-//- link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
-//- link(rel="stylesheet", href="/css/table.css")
-//- link(rel="shortcut icon" href="images/favicon.jpg" type="image/x-icon")
-//- script(src="https://kit.fontawesome.com/a076d05399.js")
 extends tablelayout
 block content
     title UploadedProduce
@@ -19,6 +12,10 @@ block content
             a.nav-link(href="http://localhost:3000/ufarmer")
               span(data-feather="file")
               | Register UrbanFarmer
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/uFarmers")
+              span(data-feather="file")
+              |View UrbanFarmers
 
           li.nav-item
             a.nav-link(href="http://localhost:3000/producelistFO")
@@ -65,30 +62,30 @@ block content
                         thead
                             tr
                             th ProductName
-                            th WardName
+                            //- th WardName
                             th DateOfRegistration
                             th UnitPrice(UGX)
-                            th ProductQuantity
-                            th Directions
-                            th ModeOfPayment
-                            th ModeOfDelivery
+                            th Quantity
+                            //- th Directions
+                            //- th ModeOfPayment
+                            //- th ModeOfDelivery
                             th ProduceType
                             th ProduceImage
-                            th Status
+                            th ProduceStatus
                             th Approve
-                            th Reject
+                            //- th Reject
                         tbody
                             if items.length
                             each item in items
                                 tr
                                     td #{item.pname}
-                                    td #{item.ward}
+                                    //- td #{item.ward}
                                     td #{item.dateOfRegistration}
                                     td #{item.price}
                                     td #{item.pquantity}
-                                    td #{item.directions}
-                                    td #{item.modeOfPayment}
-                                    td #{item.modeOfDelivery}
+                                    //- td #{item.directions}
+                                    //- td #{item.modeOfPayment}
+                                    //- td #{item.modeOfDelivery}
                                     td #{item.produceType}
                                     td 
                                         img(src="/uploads/"+ item.pImage height="100px", width="100px")
@@ -96,16 +93,11 @@ block content
                                     td
                                         form(method="GET" action='/approveproduce/'+item._id)
                                             input(type="hidden", placeholder="", name="id", value=item._id)
-                                            button.btn.btn-dark.btn-block(type="submit") Approve
-                                    td
-                                        form(method="GET" action= '/updateproduce/'+item._id)
-                                            input(type="hidden", placeholder="", name="id", value=item._id)
-                                            button.btn.btn-dark.btn-block(type="submit") Reject
+                                            button.btn.btn-success.btn-sm(type="submit") ViewProduce
+                                    //- td
+                                    //-     form(method="GET" action= '/updateproduce/'+item._id)
+                                    //-         input(type="hidden", placeholder="", name="id", value=item._id)
+                                    //-         button.btn.btn-success.btn-sm(type="submit") Reject
                             else
                                 p No registrations yet :(
-        //- footer(style="margin-top: 20px")
-        //- .bottom
-        //- center
-        //-     span.credit Created By the Agritect |
-        //-     span.far.fa-copyright
-        //-     |2020 All rights reserved.
+.

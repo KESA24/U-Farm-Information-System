@@ -88,16 +88,14 @@ block content
                                     th ProduceImage
                                     td 
                                         img(src="/uploads/"+ item.pImage height="100px", width="100px")
+                                //- tr
+                                //-     th ApprovedBy
+                                //-     td 
+                                //-         input.form-control( name ="approvee" type="text")
                                 tr
-                                    th ApprovedBy
+                                    th ProduceStatus
                                     td 
-                                        input.form-control( name ="approvee" type="text")
-                                tr
-                                    th Status
-                                    td 
-                                        input.form-control( valu=item.status name ="status" type="text")
-                                        
-                                        
+                                        input.form-control( valu=item.status name ="status" type="text")     
                                 tr 
                                     td(colspan="2")
                                         button.btn.btn-block.btn-success(type="submit") Approved

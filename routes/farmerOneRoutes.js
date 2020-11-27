@@ -6,12 +6,12 @@ const urbanFarmerReg = require("../Models/urbanFarmer")
 
 const produceReg = require("../Models/Produce")
 
-const approvedProduce = require("../Models/approvedproduce")
+// const approvedProduce = require("../Models/approvedproduce")
 
 
 // Get dashboard
 router.get('/farmerOneDash', (req,res)=>{
-    res.render("farmerOneDash")
+    res.redirect("/uFarmers")
 })
 
 //GET route for urbanfarmer Registration
@@ -112,12 +112,16 @@ router.get('/approveproduce/:id', async (req, res) => {
 router.post('/approveproduce', async (req, res) => {
     
     try{
-        const produceapproved = new approvedProduce(req.body);
-        await produceapproved.save(() => {
-            console.log('save success')
-            //  res.send('Thank you for your registration!')
-            res.redirect('/producelistFO')
-        })
+
+        await produceReg.findOneAndUpdate({ _id:req.params.id }, req.body)
+         res.redirect('producelistFO')
+        
+        // // const produceapproved = new approvedProduce(req.body);
+        // // await produceapproved.save(() => {
+        // //     console.log('save success')
+        // //     //  res.send('Thank you for your registration!')
+        // //     res.redirect('/producelistFO')
+        // })
     }
     catch(err) {
         res.status(400).send('Sorry! Something went wrong.')
