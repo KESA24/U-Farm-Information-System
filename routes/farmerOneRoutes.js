@@ -109,16 +109,15 @@ router.get('/approveproduce/:id', async (req, res) => {
     }
 })
 
-router.post('/approveproduce', async (req, res) => { 
-    try{
-        await produceReg.findOneAndUpdate({ _id:req.params.id }, req.body)
-         res.redirect('producelistFO')
-    }
-    catch(err) {
-        res.status(400).send('Sorry! Something went wrong.')
-        console.log(err)
-    }     
+router.post('/approveproduce', async (req, res) => {
+    try {
+        await produceReg.findOneAndUpdate({_id:req.query.id}, req.body)
+        res.redirect('producelistFO');
+    } catch (err) {
+        res.status(404).send("Unable to update item in the database");
+    }    
 })
+
 
 
     
