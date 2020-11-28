@@ -48,6 +48,7 @@ block content
                     //- th ProduceType
                     th ProduceImage
                     th ProduceStatus
+                    th Availability
                     th Delete
                     th Update
                 tbody
@@ -66,6 +67,7 @@ block content
                             td 
                                 img(src="/uploads/"+ item.pImage height="100px", width="100px")
                             td #{item.status}
+                            td #{item.availability}
                             td
                                 form(method="post" action='/deleteproduce')
                                     input(type="hidden", placeholder="", name="id", value=item._id)

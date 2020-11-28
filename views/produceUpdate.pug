@@ -29,51 +29,56 @@ block content
                 header
                     h1.h2 Update Produce
                     hr
-                form(method="POST" action="/updateproduce?id="+item._id enctype="multipart/form-data")
-                table.table
-                    thead.thead-dark
-                            tr
-                                th ProductName
-                                td 
-                                    input.form-control(value = item.pname name ="pname")
-                            tr
-                                th WardName
-                                td 
-                                    input.form-control(value = item.ward name ="ward") 
-                            tr
-                                th DateofRegistration
-                                td 
-                                    input.form-control(value = item.dateOfRegistration name ="dateOfRegistration")
-                            tr
-                                th UnitPrice(UGX)
-                                td 
-                                    input.form-control(value = item.price name ="price")
-                            tr
-                                th ProductQuantity(kgs)
-                                td 
-                                    input.form-control(value = item.pquantity name ="pquantity")
-                            tr
-                                th Directions
-                                td 
-                                    input.form-control(value = item.directions name ="directions")
-                            tr
-                                th ModeOfPayment
-                                td 
-                                    input.form-control(value = item.modeOfPayment name ="modeOfPayment")
-                            tr
-                                th ModeOfDelivery
-                                td 
-                                    input.form-control(value = item.modeOfDelivery name ="acts")
-                            tr
-                                th ProduceType
-                                td 
-                                    input.form-control(value = item.produceType name ="produceType")
-                            tr
-                                th ProduceImage
-                                td 
-                                    input.form-control-file(name="pImage" type="file")         
-                            tr 
-                                td(colspan="2")
-                                    button.btn.btn-block.btn-success(type="submit") Update
+                form(method="POST" action="/updateproduce?id="+item._id)
+                    table.table
+                        thead.thead-dark
+                                tr
+                                    th ProductName
+                                    td 
+                                        input.form-control(value = item.pname name ="pname")
+                                tr
+                                    th WardName
+                                    td 
+                                        input.form-control(value = item.ward name ="ward") 
+                                tr
+                                    th DateofRegistration
+                                    td 
+                                        input.form-control(value = item.dateOfRegistration name ="dateOfRegistration")
+                                tr
+                                    th UnitPrice(UGX)
+                                    td 
+                                        input.form-control(value = item.price name ="price")
+                                tr
+                                    th ProductQuantity(kgs)
+                                    td 
+                                        input.form-control(value = item.pquantity name ="pquantity")
+                                tr
+                                    th Directions
+                                    td 
+                                        input.form-control(value = item.directions name ="directions")
+                                tr
+                                    th ModeOfPayment
+                                    td 
+                                        input.form-control(value = item.modeOfPayment name ="modeOfPayment")
+                                tr
+                                    th ModeOfDelivery
+                                    td 
+                                        input.form-control(value = item.modeOfDelivery name ="acts")
+                                tr
+                                    th ProduceType
+                                    td 
+                                        input.form-control(value = item.produceType name ="produceType")
+                                tr
+                                    th Produce Availability
+                                    td 
+                                        input.form-control( value=item.availability name="availability") 
+                                tr
+                                    th ProduceImage
+                                    td 
+                                        img(src="/uploads/"+ item.pImage height="100px", width="100px")  
+                                    
+                                tr 
+                                    td(colspan="2")
+                                        button.btn.btn-block.btn-success(type="submit") Update
 
 

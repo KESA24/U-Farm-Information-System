@@ -52,6 +52,9 @@ status: {
 },
 approvee: {
   type: String,
+},
+availability: {
+  type: String,
 }
 
 });

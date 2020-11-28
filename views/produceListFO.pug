@@ -72,6 +72,7 @@ block content
                             th ProduceType
                             th ProduceImage
                             th ProduceStatus
+                            th Availability
                             th Approve
                             //- th Reject
                         tbody
@@ -91,6 +92,7 @@ block content
                                         img(src="/uploads/"+ item.pImage height="100px", width="100px")
                                         
                                     td #{item.status}
+                                    td #{item.availability}
                                     td
                                         form(method="GET" action='/approveproduce/'+item._id)
                                             input(type="hidden", placeholder="", name="id", value=item._id)

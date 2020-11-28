@@ -83,25 +83,16 @@ router.get('/updateproduce/:id', async (req, res) => {
     }
 })
 
-router.post('/updateproduce', async (req, res) => { 
+router.post('/updateproduce', async (req, res) => {
     try {
-        if(req.file){
-            const prctupload = await produceReg.findOneAndUpdate({_id:req.query.id}, req.body);
-            prctupload.pImage = req.file.filename;
-            await prctupload.save();
-
-        }
-        else{
-            await pImage.findOneAndUpdate({_id:req.query.id}, req.body)
-        }
-    
-        res.redirect('producelistUF');
+        await produceReg.findOneAndUpdate({_id:req.query.id}, req.body)
+        res.redirect('/producelist');
     } catch (err) {
         res.status(404).send("Unable to update item in the database");
-    }   
-
-
+    }    
 })
+
+
 
 //Delete wrong registrations
 router.post('/deleteproduce', async(req,res)=>{
