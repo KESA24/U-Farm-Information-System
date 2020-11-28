@@ -4,6 +4,8 @@ const router = express.Router();
 
 const produceReg = require("../Models/Produce")
 
+const bookingReg = require("../Models/bookings")
+
 const multer = require('multer')
 
 //farmer dashboard
@@ -108,6 +110,44 @@ router.post('/deleteproduce', async(req,res)=>{
  
 });
 
+//Displaying products on the online market
 
+router.get('/productlisting', async(req,res)=>{
+    try{
+        const productlisting = await produceReg.find({status:"Approved"})
+        res.render('market', {items:productlisting})
+    } catch(err){
+        res.status(404).send('Data Fetch Failed')
+    }
+});
+
+
+//Booking Produce
+// Get form
+router.get("/book", async(req,res)=>{
+
+    try{
+        const productlisting = await produceReg.find({status:"Approved"})
+        res.render('booking', {items:productlisting})
+    } catch(err){
+        res.status(404).send('Data Fetch Failed')
+    }
+    // res.render("booking")
+})
+//Post booking details to database
+router.post('/book', async(req,res)=>{
+    try{
+        const newOrder = new bookingReg(req.body);
+        await newOrder.save(() => {
+            console.log('save success')
+             res.send('Your order is being processed, our team will be in contact with you soon. Thank you for shopping with us')
+            // res.redirect('/ufarm')
+        })
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong.')
+        console.log(err)
+    }   
+})
 
 module.exports = router;

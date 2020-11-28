@@ -21,11 +21,19 @@ email:{
     type: String,
     trim: true,
 },
+qty:{
+    type:Number,
+    trim:true,
+},
 amount:{
     type: Number,
     trim: true,
 },
 deliveryAddress:{
+    type: String,
+    trim: true,
+},
+pname:{
     type: String,
     trim: true,
 },
