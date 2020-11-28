@@ -8,7 +8,7 @@ const multer = require('multer')
 
 //farmer dashboard
 router.get('/ufarmerdash', (req,res) => {
-    res.render("ufarmerDash")
+    res.redirect("/producelist")
 }); 
 
 
@@ -83,12 +83,18 @@ router.get('/updateproduce/:id', async (req, res) => {
     }
 })
 
-router.post('/updateproduce', async (req, res) => {
-    
+router.post('/updateproduce', async (req, res) => { 
     try {
-        await produceReg.findOneAndUpdate({_id:req.query.id}, req.body)
-        // produceReg.pImage = req.file.filename;
-        // await produceReg.save();
+        if(req.file){
+            const prctupload = await produceReg.findOneAndUpdate({_id:req.query.id}, req.body);
+            prctupload.pImage = req.file.filename;
+            await prctupload.save();
+
+        }
+        else{
+            await pImage.findOneAndUpdate({_id:req.query.id}, req.body)
+        }
+    
         res.redirect('producelistUF');
     } catch (err) {
         res.status(404).send("Unable to update item in the database");

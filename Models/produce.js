@@ -49,6 +49,9 @@ pImage: {
  },
 status: {
   type: String,
+},
+approvee: {
+  type: String,
 }
 
 });

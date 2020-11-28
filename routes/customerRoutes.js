@@ -33,6 +33,7 @@ router.post('/book', async(req,res)=>{
 })
 
 // Retrieve bookings and orders
+//FarmerOne
 router.get('/bookings', async (req, res) => {
     try {
         let items = await bookingReg.find()  
@@ -41,6 +42,20 @@ router.get('/bookings', async (req, res) => {
             items = await bookingReg.find({ paymentMethod: req.query.paymentMethod })
         }
         res.render('bookingslist', { title: 'Bookings and orders', users: items })
+    } catch (err) {
+        res.status(400).send("Unable to find items in the database");
+    }
+})
+
+//Urban Farmer
+router.get('/bookings2', async (req, res) => {
+    try {
+        let items = await bookingReg.find()  
+
+        if (req.query.paymentMethod) {
+            items = await bookingReg.find({ paymentMethod: req.query.paymentMethod })
+        }
+        res.render('bookingsUF', { title: 'Bookings and orders', users: items })
     } catch (err) {
         res.status(400).send("Unable to find items in the database");
     }

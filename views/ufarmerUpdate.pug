@@ -1,53 +1,100 @@
-extends layout
+extends tablelayout
 block content
-    header.card-header
-        h4.card-title Update Credentials
-    form(method="post" action="/updateufarmer?id="+user._id)
-        table.table
-            thead.thead-dark
-                    tr
-                        th First Name
-                        td 
-                            input.form-control(value = user.fname name ="fname")
-                    tr
-                        th Last Name
-                        td 
-                            input.form-control(value = user.lname name ="lname") 
-                    tr
-                        th Date Of Birth
-                        td 
-                            input.form-control(value = user.dob name ="dob")
-                    tr
-                        th Date of Registration
-                        td 
-                            input.form-control(value = user.dor name ="dor")
-                    tr
-                        th NIN
-                        td 
-                            input.form-control(value = user.nin name ="nin")
-                    tr
-                        th Tel
-                        td 
-                            input.form-control(value = user.phone name ="phone")
-                    tr
-                        th Ward
-                        td 
-                            input.form-control(value = user.ward name ="ward")
-                    tr
-                        th Ufarm ID
-                        td 
-                            input.form-control(value = user.ufid name ="ufid")
-                    tr
-                        th Activities
-                        td 
-                            input.form-control(value = user.acts name ="acts")
-                    tr
-                        th Gender
-                        td 
-                            input.form-control(value = user.gender name ="gender")
+    nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
+      .nav_bar
+        img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
+        h5(style="margin-left: 25px; margin-top: 20px;") Farmer One
+        i.fa.fa-bars.nav_btn
+      .sidebar-sticky.pt-2
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarmer")
+              span(data-feather="file")
+              | Register UrbanFarmer
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/uFarmers")
+              span(data-feather="file")
+              |View UrbanFarmers
 
-                    tr 
-                        td(colspan="2")
-                            button.btn.btn-block.btn-dark(type="submit") Update
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/producelistFO")
+              span(data-feather="file")
+              |Uploaded Produce
+        
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/approvedproducelist")
+              span(data-feather="users")
+              |Approved Produce 
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="users")
+              |Pending Produce
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/bookings")
+              span(data-feather="users")
+              | Bookings and Orders
+
+          li.nav-item
+            a.nav-link(href="http://localhost:3000/ufarm")
+              span(data-feather="shopping-cart")
+              | Ufarm OnlineMarket
+
+          li.nav-item
+            a.nav-link(href="#")
+              span(data-feather="bar-chart-2")
+              | Reports
+    main.col-md-9.ml-sm-auto.col-lg-10.px-md-4(role="main")
+        .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+            .container.mt-3
+                header
+                    h1.h2 Update Urban Farmer Details
+                    hr
+                form(method="post" action="/updateufarmer?id="+user._id)
+                    table.table
+                        thead.thead-dark
+                                tr
+                                    th First Name
+                                    td 
+                                        input.form-control(value = user.fname name ="fname")
+                                tr
+                                    th Last Name
+                                    td 
+                                        input.form-control(value = user.lname name ="lname") 
+                                tr
+                                    th Date Of Birth
+                                    td 
+                                        input.form-control(value = user.dob name ="dob")
+                                tr
+                                    th Date of Registration
+                                    td 
+                                        input.form-control(value = user.dor name ="dor")
+                                tr
+                                    th NIN
+                                    td 
+                                        input.form-control(value = user.nin name ="nin")
+                                tr
+                                    th Tel
+                                    td 
+                                        input.form-control(value = user.phone name ="phone")
+                                tr
+                                    th Ward
+                                    td 
+                                        input.form-control(value = user.ward name ="ward")
+                                tr
+                                    th Ufarm ID
+                                    td 
+                                        input.form-control(value = user.ufid name ="ufid")
+                                tr
+                                    th Activities
+                                    td 
+                                        input.form-control(value = user.acts name ="acts")
+                                tr
+                                    th Gender
+                                    td 
+                                        input.form-control(value = user.gender name ="gender")
+
+                                tr 
+                                    td(colspan="2")
+                                        button.btn.btn-block.btn-dark(type="submit") Update
 
 

@@ -54,9 +54,12 @@ title Produce Registration
         input.form-control-file#image(name="pImage", type="file")
       button.btn.btn-warning(style="width: 100%;", type="submit") Register
     .form-row
-      .form-group.col-md-12
+      .form-group.col-md-6
         label(for="status") 
         input.form-control#status(name="status", type="text" value="Pending"  hidden )
+      .form-group.col-md-6
+        label(for="status") 
+        input.form-control#approvee(name="approvee", type="text" value="UFWardFO"  hidden )
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.js")

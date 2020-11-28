@@ -109,60 +109,17 @@ router.get('/approveproduce/:id', async (req, res) => {
     }
 })
 
-router.post('/approveproduce', async (req, res) => {
-    
+router.post('/approveproduce', async (req, res) => { 
     try{
-
         await produceReg.findOneAndUpdate({ _id:req.params.id }, req.body)
          res.redirect('producelistFO')
-        
-        // // const produceapproved = new approvedProduce(req.body);
-        // // await produceapproved.save(() => {
-        // //     console.log('save success')
-        // //     //  res.send('Thank you for your registration!')
-        // //     res.redirect('/producelistFO')
-        // })
     }
     catch(err) {
         res.status(400).send('Sorry! Something went wrong.')
         console.log(err)
     }     
-
-
-})
-//Approved produce from database
-router.get("/approvedproducelist", async(req,res) =>{
-    try{
-        const foapprovedproduce = await approvedProduce.find();
-
-        if (req.query.ward) {
-            foapprovedproduce = await approvedProduce.find({ward: req.query.ward})
-        }
-
-        res.render("approvedlist" , {items:foapprovedproduce})
-    }
-    catch(err) {
-        res.status(400).send('Sorry! Something went wrong.')
-        console.log(err)
-    }
 })
 
-
-//Rejected Produce
-
-//Delete wrong registrations
-router.post('/deleteproduce', async(req,res)=>{
-    
-    try{
-        await produceReg.deleteOne({_id: req.body.id })
-        res.redirect('back')
-    }catch(err){
-        res.status(400).send("Unable to delete item in the database") 
-    }
-
-
- 
-});
 
     
 module.exports = router;

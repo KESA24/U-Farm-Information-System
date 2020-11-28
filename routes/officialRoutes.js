@@ -41,15 +41,6 @@ router.post('/login',passport.authenticate('local'), (req,res) =>{
     req.session.user = req.user;
     res.redirect('/farmerOnes')
 })
-//Views Dashboard
-// router.get('/agricdash', (req,res) => {
-//      if(req.session.user){
-//     res.render("headfarmers")
-// } else{
-//     console.log("Can't find session")
-//     res.redirect("/masajja")
-// }
-// });
 //Registers FarmerOne
 router.get('/farmerOne', (req,res) => {
     if(req.session.user){

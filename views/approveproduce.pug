@@ -3,7 +3,7 @@ block content
     nav#sidebarMenu.col-md-4.col-lg-2.d-md-block.bg-light.sidebar.collapse
         .nav_bar
             img.mobile_profile_image(src="/images/avatar.png", alt, style="margin-left: 20px; margin-top: 40px;")
-            h5(style="margin-left: 25px; margin-top: 20px;") AgricOfficer
+            h5(style="margin-left: 25px; margin-top: 20px;") Farmer One
             i.fa.fa-bars.nav_btn
         .sidebar-sticky.pt-2
             ul.nav.flex-column
@@ -45,7 +45,7 @@ block content
                 header
                     h1.h2 Update Produce
 
-                form(method="post" action="/approveproduce?id="+item._id)
+                form(method="POST" action="/approveproduce?id="+item._id)
                     table.table
                         thead.thead-dark
                                 tr
@@ -88,16 +88,16 @@ block content
                                     th ProduceImage
                                     td 
                                         img(src="/uploads/"+ item.pImage height="100px", width="100px")
-                                //- tr
-                                //-     th ApprovedBy
-                                //-     td 
-                                //-         input.form-control( name ="approvee" type="text")
+                                tr
+                                    th ApprovedBy
+                                    td 
+                                         input.form-control( value=item.approvee name ="approvee" type="text")
                                 tr
                                     th ProduceStatus
                                     td 
                                         input.form-control( valu=item.status name ="status" type="text")     
                                 tr 
-                                    td(colspan="2")
+                                    td(colspan="4")
                                         button.btn.btn-block.btn-success(type="submit") Approved
 
 
