@@ -3,11 +3,10 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-// const agricOfficerSignUp = require("../views/Deleted/AgriculturalOfficer")
 const farmerOneReg = require("../Models/FarmerOnes")
 const userSignup = require("../Models/users")
 
-//Agricultural Officer site journey
+
 
 //Landing Page
 router.get('/masajja', (req,res) => {
@@ -38,27 +37,6 @@ router.post('/signup', async(req,res)=>{
 })
 
 
-// //Oldsignup
-// router.get("/AOSignup", (req,res) => {
-//     res.render("agricOfficerSignUp")
-// })
-
-//Save AgricOfficer Credentials to database
-router.post('/AOSignup', async(req,res)=>{
-    try{
-        const agricOfficers = new agricOfficerSignUp(req.body);
-        await agricOfficerSignUp.register(agricOfficers, req.body.password,(err) => {
-            if (err){
-                throw err
-            }
-            res.redirect('/masajja')
-        })
-    }
-    catch(err) {
-        res.status(400).send('Sorry! Something went wrong')
-        console.log(err)
-    }
-})
 // New Login route
 router.post('/login',passport.authenticate('local',{failureRedirect: '/masajja'}), (req,res) =>{
 
@@ -78,11 +56,6 @@ router.post('/login',passport.authenticate('local',{failureRedirect: '/masajja'}
 
 
 
-// //old Login route
-// router.post('/login',passport.authenticate('local'), (req,res) =>{
-//     req.session.user = req.user;
-//     res.redirect('/farmerOnes')
-// })
 //Registers FarmerOne
 router.get('/farmerOne', (req,res) => {
     if(req.session.user){

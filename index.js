@@ -14,7 +14,6 @@ require("dotenv/config");
 
 const passportLocalMongoose = require('passport-local-mongoose');
 //Import Models to work with passport
-// const AgricOfficers = require('./Models/AgriculturalOfficer')
 const users = require('./Models/users')
 
 const expressSession = require('express-session')({
@@ -59,11 +58,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
-
-/* Passport Local Authentication Configs */
-// passport.use(AgricOfficers.createStrategy());
-// passport.serializeUser(AgricOfficers.serializeUser());
-// passport.deserializeUser(AgricOfficers.deserializeUser());
 
 passport.use(users.createStrategy());
 passport.serializeUser(users.serializeUser());
