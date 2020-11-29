@@ -7,10 +7,6 @@ const passport = require('passport');
 const farmerOneReg = require("../Models/FarmerOnes")
 const userSignup = require("../Models/users")
 
-//Roles business
-
-const roles = require('../roles')
-
 //Agricultural Officer site journey
 
 //Landing Page
@@ -65,9 +61,10 @@ router.post('/AOSignup', async(req,res)=>{
 })
 // New Login route
 router.post('/login',passport.authenticate('local',{failureRedirect: '/masajja'}), (req,res) =>{
+
     req.session.user = req.user;
 
-    const userRole = roles[req.user.role]
+    const userRole = req.user.role
     if(userRole == 'Agricultural Officer'){
     res.redirect('/farmerOnes')
     }
