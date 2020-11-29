@@ -1,0 +1,42 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/signUp.css")
+link(rel="icon", href="images/favicon.jpg", sizes="16x16", type="image/png")
+script(src="https://kit.fontawesome.com/8af5379226.js", crossorigin="anonymous")
+link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
+title Official signup
+.container
+  .header
+    h2 Create Ufarm Account
+  form#form.form(method="POST" action='/signup' onsubmit=" return checkInput()" autocomplete="off")
+    .form-control
+      label(for="names") Full Name 
+      input#names(name="names", type="text", placeholder="Patricia Nekesa" )
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    .form-control
+      label(for="username") Username 
+      input#username(name="username", type="text", placeholder="KESA456")
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    .form-control
+      label(for="password") Password
+      input#password(name="password", type="password" placeholder = "Strong password")
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    .form-control
+      label(for="role") Ufarm Role 
+      select.form-control#role(name="role" placeholder="select user role" ) 
+        option(value="Select your role") Select your role
+        option(value="Agricultural Officer") Agricultural Officer
+        option(value="Farmer One") Farmer One
+        option(value="Urban Farmer") Urban Farmer
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    button Submit
+
+script(src="/js/validateuser.js")

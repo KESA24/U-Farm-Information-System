@@ -1,0 +1,39 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
+link(rel="stylesheet", href="/css/signUp.css")
+script(src="https://kit.fontawesome.com/8af5379226.js", crossorigin="anonymous")
+link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,400;1,500&display=swap", rel="stylesheet")
+title Agricultural Officer SignUp
+.container.col-md-4
+  h3(style="margin-left: 10%;") Create Account
+  form#signupForm
+    .form-group.col-md-12
+      label(for="fname") First Name
+      input.form-control#fname(name="fname", type="text", placeholder="Patricia")
+        i.fas.fa-check-circle
+        i.fas.fa-exclamation-circle
+        small Error Message
+    .form-group.col-md-12
+      label(for="lname") Last Name
+      input.form-control#lname(name="lname", type="text", placeholder="Nekesa")
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    .form-group.col-md-12
+      label(for="uname") User Name
+      input.form-control#uname(name="uname", type="text", placeholder="Kesa123")
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    .form-group.col-md-12
+      label(for="pass") Password
+      input.form-control#pass(name="pass", type="password")
+      i.fas.fa-check-circle
+      i.fas.fa-exclamation-circle
+      small Error Message
+    button.btn.btn-primary(style="width: 100%; margin-top: 20px;") Submit
+script(src="/js/jquery-3.5.1.slim.min.js")
+script(src="/js/popper.min.js")
+script(src="/js/bootstrap_js/bootstrap.js")
+script(src="/js/validateAO.js")

@@ -3,8 +3,13 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-const agricOfficerSignUp = require("../Models/AgriculturalOfficer")
+// const agricOfficerSignUp = require("../views/Deleted/AgriculturalOfficer")
 const farmerOneReg = require("../Models/FarmerOnes")
+const userSignup = require("../Models/users")
+
+//Roles business
+
+const roles = require('../roles')
 
 //Agricultural Officer site journey
 
@@ -14,9 +19,33 @@ router.get('/masajja', (req,res) => {
 });
 
 //SignUpPage
-router.get("/AOSignup", (req,res) => {
-    res.render("agricOfficerSignUp")
+
+router.get("/signup", (req,res) => {
+    res.render("usersignup")
 })
+
+//Save User Credentials to database
+router.post('/signup', async(req,res)=>{
+    try{
+        const users = new userSignup(req.body);
+        await userSignup.register(users, req.body.password,(err) => {
+            if (err){
+                throw err
+            }
+            res.redirect('/masajja')
+        })
+    }
+    catch(err) {
+        res.status(400).send('Sorry! Something went wrong')
+        console.log(err)
+    }
+})
+
+
+// //Oldsignup
+// router.get("/AOSignup", (req,res) => {
+//     res.render("agricOfficerSignUp")
+// })
 
 //Save AgricOfficer Credentials to database
 router.post('/AOSignup', async(req,res)=>{
@@ -34,13 +63,29 @@ router.post('/AOSignup', async(req,res)=>{
         console.log(err)
     }
 })
-
-
-//Login route
-router.post('/login',passport.authenticate('local'), (req,res) =>{
+// New Login route
+router.post('/login',passport.authenticate('local',{failureRedirect: '/masajja'}), (req,res) =>{
     req.session.user = req.user;
+
+    const userRole = roles[req.user.role]
+    if(userRole == 'Agricultural Officer'){
     res.redirect('/farmerOnes')
+    }
+    else if (userRole=='Farmer One'){
+        res.redirect('/ufarmers')
+    }
+    else if (userRole=='Urban Farmer'){
+        res.redirect('/producelist')
+    }
 })
+
+
+
+// //old Login route
+// router.post('/login',passport.authenticate('local'), (req,res) =>{
+//     req.session.user = req.user;
+//     res.redirect('/farmerOnes')
+// })
 //Registers FarmerOne
 router.get('/farmerOne', (req,res) => {
     if(req.session.user){
