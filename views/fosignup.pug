@@ -11,7 +11,7 @@ title Official signup
   form#form.form(method="POST" action='/signup' onsubmit=" return checkInput()" autocomplete="off")
     .form-control
       label(for="names") Full Name 
-      input#names(name="names", type="text", placeholder="Patricia Nekesa" value = user.ufnames )
+      input#names(name="names", type="text", placeholder="Patricia Nekesa" value = user.names )
       i.fas.fa-check-circle
       i.fas.fa-exclamation-circle
       small Error Message
@@ -29,7 +29,7 @@ title Official signup
       small Error Message
     .form-control
       label(for="role") Ufarm Role 
-      input#role(name="role" value ="Urban Farmer" ) 
+      input#role(name="role" value ="Farmer One" ) 
         //- option(value="Select your role") Select your role
         //- option(value="Agricultural Officer") Agricultural Officer
         //- option(value="Farmer One") Farmer One

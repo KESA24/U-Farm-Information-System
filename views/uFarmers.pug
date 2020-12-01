@@ -19,6 +19,7 @@ block content
             a.nav-link(href="http://localhost:3000/ufarmer")
               span(data-feather="file")
               | Register UrbanFarmer
+
           li.nav-item
             a.nav-link(href="http://localhost:3000/uFarmers")
               span(data-feather="file")
@@ -58,39 +59,43 @@ block content
             table.content-table.table-bordered                      
                 thead
                     tr
-                        th FirstName
-                        th LastName
+                        th FarmerFullname
                         th DateofBirth
-                        th DateofReg
+                        th Gender
+                        th DateofRegistration
                         th NationalIdNumber
-                        th Contact
+                        th PhoneContact
                         th WardName
                         th UfarmID
-                        th Activities
-                        th Gender
+                        th FarmActivities
                         th Delete
                         th UpdateDetails
+                        th CreateAccount
                     tbody
                             if users.length
                             each user in users
                                 tr
-                                    td #{user.fname}
-                                    td #{user.lname}
-                                    td #{user.dob}
-                                    td #{user.dor}
-                                    td #{user.nin}
-                                    td #{user.phone}
-                                    td #{user.ward}
-                                    td #{user.ufid}
-                                    td #{user.acts}
+                                    td #{user.ufnames}
+                                    td #{user.ufdob}
                                     td #{user.gender}
+                                    td #{user.ufdor}
+                                    td #{user.ufnin}
+                                    td #{user.ufphone}
+                                    td #{user.ufward}
+                                    td #{user.ufid}
+                                    td #{user.ufacts}
+                                    
                                     td
                                         form(method="post" action='/deleteufarmer')
                                             input(type="hidden", placeholder="", name="id", value=user._id)
-                                            button.btn.btn-success.btn-sm.btn-block(type="submit") Delete
+                                            button.btn.btn-success.btn-sm(type="submit") Delete
                                     td
                                         form(method="GET" action= '/updateufarmer/'+user._id)
                                             input(type="hidden", placeholder="", name="id", value=user._id)
-                                            button.btn.btn-sm.btn-success.btn-block(type="submit") Update
+                                            button.btn.btn-sm.btn-success(type="submit") Update
+                                    td
+                                        form(method="GET" action= '/signup/'+user._id)
+                                            input(type="hidden", placeholder="", name="id", value=user._id)
+                                            button.btn.btn-sm.btn-success(type="submit") CreateAccount
                             else
                                 p No registrations yet :(  

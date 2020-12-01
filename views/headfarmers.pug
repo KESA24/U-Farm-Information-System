@@ -10,7 +10,7 @@ block content
           li.nav-item
             a.nav-link(href="http://localhost:3000/farmerOne")
               span(data-feather="file")
-              | Register Farmer One
+              | Register FarmerOne
 
           li.nav-item
             a.nav-link(href="http://localhost:3000/farmerOnes")
@@ -36,11 +36,10 @@ block content
             table.content-table.table-bordered.bg-light
                 thead
                     tr
-                    th FirstName
-                    th LastName
+                    th FullName
                     th DateOfBirth
                     th DateOfRegistration
-                    th National-Id-Num
+                    th NationalIdNumber
                     th PhoneNumber
                     th FONumber
                     th ResidenceType
@@ -50,17 +49,17 @@ block content
                     th PeriodofStay
                     th Gender
                     th UpdateDetails
+                    th CreateAccount
                 tbody
                     if users.length
                     each user in users
                         tr
-                            td #{user.fname}
-                            td #{user.lname}
+                            td #{user.names}
                             td #{user.dob}
                             td #{user.dor}
                             td #{user.nin}
                             td #{user.phone}
-                            td #{user.foid}
+                            td #{user.ufid}
                             td #{user.restype}
                             td #{user.ward}
                             td #{user.acts}
@@ -72,6 +71,10 @@ block content
                                 form(method="GET" action= '/update/'+user._id)
                                     input(type="hidden", placeholder="", name="id", value=user._id)
                                     button.btn.btn-sm.btn-success.btn-block(type="submit") Update
+                            td
+                                form(method="GET" action= '/signupfo/'+user._id)
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-sm.btn-success(type="submit") CreateAccount
                     else
                         p No registrations yet :(
 

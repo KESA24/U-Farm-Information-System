@@ -6,8 +6,6 @@ const passport = require('passport');
 const farmerOneReg = require("../Models/FarmerOnes")
 const userSignup = require("../Models/users")
 
-
-
 //Landing Page
 router.get('/masajja', (req,res) => {
     res.render("officialLand")
@@ -16,8 +14,10 @@ router.get('/masajja', (req,res) => {
 //SignUpPage
 
 router.get("/signup", (req,res) => {
-    res.render("usersignup")
+    res.render("aosignup")
 })
+
+
 
 //Save User Credentials to database
 router.post('/signup', async(req,res)=>{
@@ -153,6 +153,16 @@ router.post('/delete', async(req,res)=>{
  
 });
 
+// Create Account
+router.get('/signupfo/:id', async (req, res) => {
+    
+    try {
+        const foAccount = await farmerOneReg.findOne({ _id:req.params.id })
+         res.render('fosignup', { user: foAccount})
+    } catch (err) {
+        res.status(400).send("Unable to find item in the database");
+    }
+})
 
 
 module.exports = router;

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../images/background\ \(4\).jpg');
+    font-family: 'Poppins', sans-serif;  
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container{
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 1px gainsboro;
+    overflow: hidden;
+    width: 1000px;
+    max-width: 100%;
+    padding: 0;
+    margin-top: 9px;
+    
+}
+
+.header{
+    background-color: gainsboro;
+    color: green;
+    border-bottom: 2px solid green;
+    padding: 20px 40px;
+    
+}
+.header h2{
+    margin: 0;
+}
+
+.form{
+    padding: 30px 40px;
+    
+}
+
+.form-group{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-group label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-group input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size:14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-group select{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size:14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-group i {
+    position: absolute;
+    top:40px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-group small{
+    visibility: hidden;  
+    position: absolute;
+     bottom: 0;
+     left: 0; 
+}
+
+.form button{
+    background-color: green;
+    border: 2px solid green;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    padding: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    width: 100%;
+    cursor: pointer;
+}
+
+.form-group.success input{
+    border-color: green;
+}
+
+.form-group.success  select{
+    border-color: green;
+}
+
+.form-group.error input{
+    border-color: red;
+}
+
+.form-group.error select{
+    border-color: red;
+}
+
+.form-group.success i.fa-check-circle{
+    visibility: visible;
+    color: green;
+}
+
+.form-group.error i.fa-exclamation-circle{
+    color: red;
+    visibility: visible;
+}
+
+.form-group.error small{
+    color: red;
+    visibility: visible;
+}

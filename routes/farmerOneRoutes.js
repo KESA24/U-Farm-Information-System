@@ -119,6 +119,14 @@ router.post('/approveproduce', async (req, res) => {
 })
 
 
-
+router.get('/signup/:id', async (req, res) => {
+    
+    try {
+        const ufaccount = await urbanFarmerReg.findOne({ _id:req.params.id })
+         res.render('usersignup', { user: ufaccount})
+    } catch (err) {
+        res.status(400).send("Unable to find item in the database");
+    }
+})
     
 module.exports = router;

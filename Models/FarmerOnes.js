@@ -2,19 +2,42 @@
 const mongoose = require('mongoose');
 
 const farmerOneSchema = new mongoose.Schema({
-fname: String,
-lname:String,
-dob: String,
-dor: String,
-nin: String,
-phone:Number,
-foid:String,
-restype:String,
-ward:String,
-acts: String,
-home: String,
-stayperiod: String,
-gender: String,
+names:{
+    type: String
+},
+dob:{
+    type: String
+},
+dor: {
+    type: String
+},
+nin:{
+type: String
+},
+phone:{
+    type:Number
+},
+ufid:{
+    type: String
+},
+restype:{
+    type: String
+},
+ward:{
+    type:String
+},
+acts:{
+    type: String
+},
+home:{
+    type: String
+},
+stayperiod:{
+    type: String
+},
+gender: {
+    type:String,
+}
 
 });
 

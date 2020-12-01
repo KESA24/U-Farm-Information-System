@@ -2,18 +2,19 @@ meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 link(rel="stylesheet", href="/css/bootstrap_css/bootstrap.css")
 link(rel="icon" href="images/favicon.jpg")
-link(rel="stylesheet", href="/css/registraton.css")
+link(rel="stylesheet", href="/css/registration.css")
 title Produce Registration
 .container
-  h3 Produce Registration
-  form(method="POST" action="/uproduce" enctype="multipart/form-data")
+  .header
+    h2 Produce Registration
+  form.form#form(method="POST" action="/uproduce" enctype="multipart/form-data")
     .form-row
       .form-group.col-md-6
         label(for="pname") Name of Produce
-        input.form-control#fname(name="pname", type="text")
+        input#fname(name="pname", type="text")
       .form-group.col-md-6
         label(for="Ward") Ward Name
-        select#ward.form-control(name="ward")
+        select#ward(name="ward")
           option(value="Ward 1") Ward 1
           option(value="Ward 2") Ward 2
           option(value="Ward 3") Ward 3
@@ -21,49 +22,49 @@ title Produce Registration
     .form-row
       .form-group.col-md-6
         label(for="dob") Date Of Registration
-        input.form-control#dob(name="dateOfRegistration", type="date")
+        input#dob(name="dateOfRegistration", type="date")
       .form-group.col-md-6
         label(for="price") Unit Price(UGX)
-        input.form-control#dor(name="price", type="number")
+        input#dor(name="price", type="number")
     .form-row
       .form-group.col-md-6
         label(for="qty") Quantity
-        input.form-control#pquantity(name="pquantity", type="number")
+        input#pquantity(name="pquantity", type="number")
       .form-group.col-md-6
         label(for="ufid") Directions
-        input.form-control#dir(name="directions", type="text", placeholder="Directions to farm")
+        input#dir(name="directions", type="text", placeholder="Directions to farm")
     .form-row
       .form-group.col-md-6
         label(for="modeOfPayment") Mode of Payment
-        select#mop.form-control(name="modeOfPayment")
+        select#mop(name="modeOfPayment")
           option(value="Cash") Cash
           option(value="Mobile Money") Mobile Money
       .form-group.col-md-6
         label(for="phone") Mode of Delivery
-        select#mod.form-control(name="modeOfDelivery")
+        select#mod(name="modeOfDelivery")
           option(value="Pickup") Pickup
           option(value="Home Delivery") Home Delivery
     .form-row
       .form-group.col-md-6
         label(for="acts") Produce Type
-        select#ptype.form-control(name="produceType")
+        select#ptype(name="produceType")
           option(value="Organic") Organic
           option(value="Non Organic") Non Organic
       .form-group.col-md-6
         label(for="image") Upload Picture
-        input.form-control-file#image(name="pImage", type="file")
+        input.file#image(name="pImage", type="file")
       button.btn.btn-warning(style="width: 100%;", type="submit") Register
     .form-row
       .form-group.col-md-6
         label(for="status") 
-        input.form-control#status(name="status", type="text" value="Pending"  hidden )
+        input#status(name="status", type="text" value="Pending"  hidden )
       .form-group.col-md-6
         label(for="status") 
-        input.form-control#approvee(name="approvee", type="text" value="UFWardFO"  hidden )
+        input#approvee(name="approvee", type="text" value="UFWardFO"  hidden )
     .form-row
       .form-group.col-md-12
         label(for="availability") 
-        input.form-control#avail(name="availability", type="String" value="Available" hidden)
+        input#avail(name="availability", type="String" value="Available" hidden)
 
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
