@@ -19,35 +19,35 @@ nav.site-header.sticky-top.py-1
     a.py-2.d-none.d-md-inline-block(href="#") Cart
 //-   Information slide 
 main(role="main")
-  #myCarousel.carousel.slide(data-ride="carousel")
+  #myCarousel.carousel.slide(data-ride="carousel" )
     ol.carousel-indicators
       li.active(data-target="#myCarousel", data-slide-to="0")
       li(data-target="#myCarousel", data-slide-to="1")
       li(data-target="#myCarousel", data-slide-to="2")
     .carousel-inner
       .carousel-item.active
-        img(src="/images/background (7).jpg", alt)
+        img(src="/images/carousel1.jpg",  alt)
         .container
           .carousel-caption.text-left
-            h1 Example headline.
-            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-            p
-              a.btn.btn-lg.btn-primary(href="#", role="button") Sign up today
+            h1(style='color:burlywood') Welcome to UFARM Uganda
+            h4 We provide fresh produce to your doorstep
+            //- p
+            //-   a.btn.btn-lg.btn-primary(href="#", role="button") Sign up today
       .carousel-item
-        img(src="/images/bell-pepper-569070_1920.jpg", alt)
+        img(src="/images/vegetables-1584999_1920.jpg", alt)
         .container
-          .carousel-caption
-            h1 Another example headline.
-            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-            p
-              a.btn.btn-lg.btn-primary(href="#", role="button") Learn more
+          .carousel-caption.text-left(style='color:burlywood')
+            h4 Our produce is specially prepared 
+            h4 by committed urban Farmers in Masajja
+            //- p
+            //-   a.btn.btn-lg.btn-primary(href="#", role="button") Learn more
       .carousel-item
-        img(src="/images/basil-932079_1920.jpg", alt)
+        img(src="/images/ward1.jpg", alt)
         .container
-          .carousel-caption.text-right
-            h1 One more for good measure.
-            p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-            p
+          //- .carousel-caption.text-right
+          //-   h1 One more for good measure.
+          //-   p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          //-   p
               a.btn.btn-lg.btn-primary(href="#", role="button") Browse gallery
     a.carousel-control-prev(href="#myCarousel", role="button", data-slide="prev")
       span.carousel-control-prev-icon(aria-hidden="true")
@@ -57,6 +57,7 @@ main(role="main")
       span.sr-only Next
     //- Product Listings 
   .products
+    .h3(style='color:burlywood; padding: 5px;') Current Listing
     .row.row-cols-1.row-cols-md-4
         if items.length
             each item in items
@@ -65,9 +66,11 @@ main(role="main")
                         img.card-img-top(src="/uploads/"+ item.pImage height="100px", width="100px")
                         .card-body
                             h5.card-title #{item.pname}
-                            p.card-text #{item.price}
+                            p.card-text UGX #{item.price}
                             form(method="GET", action="/book")
-                                button.btn.btn-primary Add to cart
+                                button.btn.btn-success(style='margin-right: 5px;') Book/Order
+                            form(method="GET", action="/dialin") 
+                                button.btn.btn-success Call Farmer
     //-   .col.mb-4
     //-     .card.h-100
     //-       img.card-img-top(src="/images/ProductListings/onions2.jpg", alt="...")
@@ -161,12 +164,10 @@ main(role="main")
 //-  Footer 
 footer.container
   p.float-right
-    a(href="#") Back to top
+    a(href="#")(style='color:green') Back to top
   p
     | © Created by the Agritect | 2020 All rights reserved. · 
-    a(href="#") Privacy
-    |  · 
-    a(href="#") Terms
+    
 script(src="/js/jquery-3.5.1.slim.min.js")
 script(src="/js/popper.min.js")
 script(src="/js/bootstrap_js/bootstrap.bundle.min.js")

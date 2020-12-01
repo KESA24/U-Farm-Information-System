@@ -150,4 +150,15 @@ router.post('/book', async(req,res)=>{
     }   
 })
 
+router.get("/dialin", async(req,res)=>{
+
+    try{
+        const productlisting = await produceReg.find({status:"Approved"})
+        res.render('booking', {items:productlisting})
+    } catch(err){
+        res.status(404).send('Data Fetch Failed')
+    }
+    // res.render("booking")
+})
+
 module.exports = router;
